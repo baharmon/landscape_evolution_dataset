@@ -1,0 +1,4 @@
+COMMAND: r.to.vect --overwrite -s input="watershed@patterson_branch" output="watershed" type="area" column="value"
+GISDBASE: /Volumes/grey/fort_bragg/grassdata
+LOCATION: nc_spm_fort_bragg MAPSET: patterson_branch USER: Brendan DATE: Sat May 20 21:17:19 2017
+---------------------------------------------------------------------------------

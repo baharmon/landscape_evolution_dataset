@@ -1,0 +1,29 @@
+This sample dataset is derived from publicly available data from
+the US Army, USGS, USDA, Wake County GIS, NC Floodplain
+Mapping Program, and the NC State Climate Office.
+
+USDA NAIP was acquired from the USGS Earth Explorer at
+https://earthexplorer.usgs.gov/
+
+USDA NAIP was also acquired as a web mapping service from the NC Coastal Atlas
+at https://nccoastalatlas.org/geoserver/ows?service=wms
+
+Soil data was acquired from the USDA Soil Survey at
+http://websoilsurvey.sc.egov.usda.gov/
+
+2001 lidar data collected by the NC Floodplain Mapping Program
+was acquired from the NC Floodplain Mapping Program's
+Spatial Data Download site and the USGS Earth Explorer.
+
+2012 lidar data was acquired by contacting Fort Bragg.
+
+2015 lidar data was acquired from NC Floodplain Mapping Program's
+Spatial Data Download site at https://rmp.nc.gov/sdd/
+
+Weather data was acquired from the State Climate Office of North Carolina's
+Climate Retrieval and Observations Network Of the Southeast (CRONOS) at
+http://climate.ncsu.edu/cronos
+
+
+Brendan Harmon
+https://github.com/baharmon/landscape_evolution

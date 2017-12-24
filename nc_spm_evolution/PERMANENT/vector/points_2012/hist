@@ -1,0 +1,4 @@
+COMMAND: v.patch input="points_be_i_08@patterson_branch,points_be_j_08@patterson_branch" output="points_2012"
+GISDBASE: /Volumes/grey/fort_bragg/grassdata
+LOCATION: nc_spm_fort_bragg MAPSET: patterson_branch USER: Brendan DATE: Sat May 20 14:22:08 2017
+---------------------------------------------------------------------------------

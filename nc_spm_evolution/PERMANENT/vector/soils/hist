@@ -1,0 +1,13 @@
+COMMAND: v.in.ogr -r input="/Volumes/grey/grassdata/fort_bragg_data/wss_aoi_2017-05-21_15-12-11/wss_aoi_2017-05-21_15-12-11\spatial\soilmu_a_aoi.shp" min_area=0.0001 type="" snap=1e-13
+GISDBASE: /Volumes/grey/grassdata
+LOCATION: temp_import_location_46364 MAPSET: PERMANENT USER: Brendan DATE: Sun May 21 16:25:33 2017
+-----------------------------------------------------
+7 input polygons
+Total area: 415379 (7 areas)
+Overlapping area: 0 (0 areas)
+Area without category: 0 (0 areas)
+---------------------------------------------------------------------------------
+COMMAND: v.proj location="temp_import_location_46364" mapset="PERMANENT" input="soilmu_a_aoi" smax=10000
+GISDBASE: /Volumes/grey/grassdata
+LOCATION: nc_spm_fort_bragg MAPSET: PERMANENT USER: Brendan DATE: Sun May 21 16:25:33 2017
+---------------------------------------------------------------------------------

@@ -1,0 +1,11 @@
+0% 100 0 100
+-100 magenta
+-10 red
+-1 orange
+-0.1 yellow
+0 200 255 200
+0.1 cyan
+1 aqua
+10 blue
+100 0 0 100
+100% black

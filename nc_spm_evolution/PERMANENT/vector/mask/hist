@@ -1,0 +1,8 @@
+COMMAND: v.edit map="mask" layer="1" type="point,line,boundary,centroid" tool="create" threshold=-1,0,0 snap="no"
+GISDBASE: /Volumes/grey/grassdata
+LOCATION: nc_spm_fort_bragg MAPSET: PERMANENT USER: Brendan DATE: Sun May 21 11:22:22 2017
+---------------------------------------------------------------------------------
+COMMAND: v.db.connect --quiet map="mask" driver="sqlite" database="$GISDBASE/$LOCATION_NAME/$MAPSET/sqlite/sqlite.db" table="mask" key="cat" layer="1" separator="pipe"
+GISDBASE: /Volumes/grey/grassdata
+LOCATION: nc_spm_fort_bragg MAPSET: PERMANENT USER: Brendan DATE: Sun May 21 11:22:23 2017
+---------------------------------------------------------------------------------

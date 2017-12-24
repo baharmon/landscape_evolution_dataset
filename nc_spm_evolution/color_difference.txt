@@ -1,0 +1,15 @@
+0% 100 0 100
+-1 magenta
+-0.75 red
+-0.5 orange
+-0.25 yellow
+-0.1 grey
+0 white
+0.1 grey
+0.25 cyan
+0.5 aqua
+0.75 blue
+1 0 0 100
+100% black
+nv white
+default white
