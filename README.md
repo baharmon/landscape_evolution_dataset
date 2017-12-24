@@ -37,7 +37,7 @@ Imagery 2014 | Landcover 2014
 
 Landforms 2004 | Landforms 2016
 :-------------------------:|:-------------------------:
-<img src="images/landforms_2004.png" height="500"> | <img src="images/landforms_2016" height="500">
+<img src="images/gully_landforms_2004.png" height="500"> | <img src="images/gully_landforms_2016" height="500">
 
 ## Credits
 This sample dataset is derived from publicly available data from
