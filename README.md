@@ -25,7 +25,7 @@ for near a highly eroded watershed near Patterson Branch Creek on Fort Bragg
 
 Elevation 2004 | Elevation 2016
 :-------------------------:|:-------------------------:
-<img src="images/elevation_2004.png"> | <img src="images/elevation_2016.png"">
+<img src="images/elevation_2004.png"> | <img src="images/elevation_2016.png">
 
 Depth 2016 | Difference 2004-2016
 :-------------------------:|:-------------------------:
@@ -33,7 +33,7 @@ Depth 2016 | Difference 2004-2016
 
 Imagery 2014 | Landcover 2014
 :-------------------------:|:-------------------------:
-<img src="images/naip_2014.png"> | <img src="images/landcover_2014.png">
+<img src="images/naip_2014.png"> | <img src="images/landcover.png">
 
 Landforms 2004 | Landforms 2016
 :-------------------------:|:-------------------------:
