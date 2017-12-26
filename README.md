@@ -39,6 +39,23 @@ Landforms 2004 | Landforms 2016
 :-------------------------:|:-------------------------:
 <img src="images/sample_data/gully_landforms_2004.png"> | <img src="images/sample_data/gully_landforms_2016.png">
 
+## 3D
+Elevation 2004 | Elevation 2016
+:-------------------------:|:-------------------------:
+<img src="images/sample_data_3d/colorized_skyview_2004.png"> | <img src="images/sample_data_3d/colorized_skyview_2016.png">
+
+Depth 2016 | Difference 2004-2016
+:-------------------------:|:-------------------------:
+<img src="images/sample_data_3d/depth_2016.png"> | <img src="images/sample_data_3d/difference_2004_2016.png">
+
+Imagery 2014 | Landcover 2014
+:-------------------------:|:-------------------------:
+<img src="images/sample_data_3d/naip_2014.png"> | <img src="images/sample_data_3d/landcover.png">
+
+Landforms 2004 | Landforms 2016
+:-------------------------:|:-------------------------:
+<img src="images/sample_data_3d/landforms_2004.png"> | <img src="images/sample_data_3d/landforms_2016.png">
+
 ## Credits
 This sample dataset is derived from publicly available data from
 the US Army, USGS, USDA, NC Floodplain
