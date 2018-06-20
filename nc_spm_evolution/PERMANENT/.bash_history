@@ -368,3 +368,194 @@ D:\landscape_evolution\testing\render_sample_data.py
 D:\landscape_evolution\testing\render_sample_data.py
 D:\landscape_evolution\testing\render_sample_data.py
 D:\landscape_evolution\testing\render_sample_data.py
+g.extension r.evolution url=github.com/baharmon/landscape_evolution
+/home/baharmon/landscape_evolution/testing/steady_state_simulations.py
+r.evolution
+r.evolution --gui
+r.evolution --ui
+r.evolution
+r.evolution --ui
+/home/baharmon/landscape_evolution/testing/steady_state_simulations.py
+g.extension r.evolution url=github.com/baharmon/landscape_evolution
+/home/baharmon/landscape_evolution/testing/steady_state_simulations.py
+g.extension
+g.extension extension=r.evolution operation=remove
+g.extension -f extension=r.evolution operation=remove
+g.extension r.evolution url=github.com/baharmon/landscape_evolution
+g.extension r.evolution url=github.com/baharmon/landscape_evolution
+/home/baharmon/landscape_evolution/testing/steady_state_simulations.py
+g.extension r.evolution url=github.com/baharmon/landscape_evolution
+/home/baharmon/landscape_evolution/testing/steady_state_simulations.py
+g.extension r.evolution url=github.com/baharmon/landscape_evolution
+/home/baharmon/landscape_evolution/testing/steady_state_simulations.py
+g.extension r.evolution url=github.com/baharmon/landscape_evolution
+/home/baharmon/landscape_evolution/testing/steady_state_simulations.py
+g.extension r.evolution url=github.com/baharmon/landscape_evolution
+/home/baharmon/landscape_evolution/testing/steady_state_simulations.py
+/home/baharmon/landscape_evolution/testing/steady_state_simulations_150.py
+/home/baharmon/landscape_evolution/testing/dynamic_models.py
+/home/baharmon/landscape_evolution/testing/dynamic_models_150.py
+/home/baharmon/landscape_evolution/testing/dynamic_simulations.py
+exit
+/home/baharmon/landscape_evolution/testing/dynamic_simulations_150.py
+/home/baharmon/landscape_evolution/testing/bare_simulations.py
+/home/baharmon/landscape_evolution/testing/bare_simulations.py
+exit
+/home/baharmon/landscape_evolution/testing/bare_simulations.py
+/home/baharmon/landscape_evolution/testing/bare_simulations.py
+/home/baharmon/landscape_evolution/testing/bare_simulations.py
+/home/baharmon/landscape_evolution/testing/bare_simulations.py
+/home/baharmon/landscape_evolution/testing/bare_simulations.py
+/home/baharmon/landscape_evolution/testing/bare_simulations.py
+/home/baharmon/landscape_evolution/testing/design_storm_simulations.py
+/home/baharmon/landscape_evolution/testing/design_storm_simulations.py
+/home/baharmon/landscape_evolution/testing/bare_simulations.py
+/home/baharmon/landscape_evolution/testing/design_storm_simulations.py
+/home/baharmon/landscape_evolution/testing/design_storm_simulations.py
+/home/baharmon/landscape_evolution/testing/design_storm_simulations.py
+/home/baharmon/landscape_evolution/testing/design_storm_simulations.py
+/home/baharmon/landscape_evolution/testing/design_storm_simulations.py
+g.region res=0.3
+v.surf.rst input=points_2012 elevation=elevation_30cm_2012 tension=10 smooth=1
+v.surf.rst
+g.remove
+v.surf.rst input=points_2012 elevation=elevation_30cm_2012 tension=10 smooth=1 nprocs=6
+v.surf.rst input=points_2012 elevation=elevation_30cm_2012 tension=10 smooth=1 nprocs=6
+v.surf.rst input=points_2004 elevation=elevation_30cm_2004 tension=30 smooth=1 nprocs=6
+v.surf.rst input=points_2016 elevation=elevation_30cm_2016 tension=7 smooth=1 nprocs=6
+g.rename
+g.rename raster=elevation_30cm_2016,elevation_2016
+g.rename --overwrite raster=elevation_30cm_2016,elevation_2016
+g.rename --overwrite raster=elevation_30cm_2012,elevation_2012
+g.rename --overwrite raster=elevation_30cm_2004,elevation_2004
+g.region res=0.3
+r.mapcalc difference_2004_2016 = elevation_2016 - elevation_2004 --overwrite
+r.mapcalc difference_2004_2012 = elevation_2012 - elevation_2004
+r.mapcalc difference_2004_2012 = elevation_2012 - elevation_2004 --overwrite
+r.mapcalc difference_2004_2012 = elevation_2012 - elevation_2004 --overwrite
+r.mapcalc difference_2012_2016 = elevation_2016 - elevation_2012 --overwrite
+r.colors map=difference_2004_2012 rules=color_difference.txt
+r.colors map=difference_2004_2012 rules=color_difference.txt
+r.colors
+r.colors map=difference_2012_2016@PERMANENT rules=/home/baharmon/landscape_evolution_dataset/nc_spm_evolution/color_difference.txt
+r.colors map=difference_2012_2016@PERMANENT,difference_2004_2016@PERMANENT rules=/home/baharmon/landscape_evolution_dataset/nc_spm_evolution/color_difference.txt
+r.colors map=difference_2012_2016@PERMANENT,difference_2004_2016@PERMANENT,difference_2004_2012@PERMANENT rules=/home/baharmon/landscape_evolution_dataset/nc_spm_evolution/color_difference.txt
+r.mapcalc difference_2012_2016 = elevation_2016 - elevation_2012
+r.mapcalc difference_2012_2016 = elevation_2016 - elevation_2012 --overwrite
+r.colors map=difference_2012_2016@PERMANENT,difference_2004_2016@PERMANENT,difference_2004_2012@PERMANENT rules=/home/baharmon/landscape_evolution_dataset/nc_spm_evolution/color_difference.txt
+g.region region=region res=0.3
+r.relief input=elevation_2004 output=relief_2004 --overwrite
+r.relief input=elevation_2012 output=relief_2012 --overwrite
+r.relief input=elevation_2016 output=relief_2016 --overwrite
+r.skyview input=elevation_2004 output=skyview_2004 ndir=16 colorized_output=colorized_skyview_2004 --overwrite
+r.skyview input=elevation_2012 output=skyview_2012 ndir=16 colorized_output=colorized_skyview_2012 --overwrite
+r.skyview input=elevation_2016 output=skyview_2016 ndir=16 colorized_output=colorized_skyview_2016 --overwrite
+r.shade shade=relief_2004 color=colorized_skyview_2004 output=shaded_relief_2004 brighten=75 --overwrite
+r.shade shade=relief_2012 color=colorized_skyview_2012 output=shaded_relief_2012 brighten=75 --overwrite
+r.shade shade=relief_2016 color=colorized_skyview_2016 output=shaded_relief_2016 brighten=75 --overwrite
+r.geomorphon elevation=elevation_2004 forms=landforms_2004 search=24 skip=0 flat=1 dist=0 step=0 start=0 --overwrite
+r.geomorphon elevation=elevation_2004 forms=landforms_2004 search=36 skip=0 flat=1 dist=0 step=0 start=0 --overwrite
+r.geomorphon elevation=elevation_2004 forms=landforms_2004 search=64 skip=0 flat=1 dist=0 step=0 start=0 --overwrite
+r.geomorphon elevation=elevation_2012 forms=landforms_2012 search=64 skip=0 flat=1 dist=0 step=0 start=0 --overwrite
+r.geomorphon elevation=elevation_2016 forms=landforms_2016 search=64 skip=0 flat=1 dist=0 step=0 start=0 --overwrite
+r.slope.aspect elevation=elevation_2016 dx=dx dy=dy
+r.slope.aspect elevation=elevation_2016 dx=dx dy=dy --overwrite
+r.sim.water elevation=elevation_2016 dx=dx dy=dy man=mannings depth=depth_2016 nwalkers=5000000 output_step=1 niterations=10 nprocs = 6 --overwrite
+r.sim.water
+r.sim.water elevation=elevation_2016 dx=dx dy=dy man=mannings depth=depth_2016 nwalkers=5000000 output_step=1 niterations=10 nprocs=6 --overwrite
+r.info map=depth_2016@PERMANENT
+/home/baharmon/landscape_evolution/testing/render_sample_data.py
+g.region n=150870 s=150720 w=597290 e=597440 save=subregion res=0.3
+g.region region=region res=0.3
+v.surf.rst input=points_2016 elevation=elevation_2016 tension=10 smooth=1 nprocs=6
+v.surf.rst input=points_2016 elevation=elevation_2016 tension=10 smooth=1 nprocs=6 --overwrite
+r.mapcalc difference_2004_2016 = elevation_2016 - elevation_2004 --overwrite
+r.mapcalc difference_2012_2016 = elevation_2016 - elevation_2012 --overwrite
+v.surf.rst input=points_2016 elevation=elevation_2016 tension=12 smooth=1 nprocs=6
+v.surf.rst input=points_2016 elevation=elevation_2016 tension=12 smooth=1 nprocs=6 --overwrite
+r.mapcalc difference_2012_2016 = elevation_2016 - elevation_2012 --overwrite
+r.mapcalc difference_2012_2016 = elevation_2016 - elevation_2012 --overwrite
+v.surf.rst input=points_2016 elevation=elevation_2016 tension=18 smooth=1 nprocs=6
+v.surf.rst input=points_2016 elevation=elevation_2016 tension=18 smooth=1 nprocs=6 --overwrite
+r.mapcalc difference_2012_2016 = elevation_2016 - elevation_2012 --overwrite
+v.surf.rst input=points_2016 elevation=elevation_2016 tension=21 smooth=1 nprocs=6 --overwrite
+v.surf.rst input=points_2012 elevation=elevation_2012 tension=21 smooth=1 nprocs=6 --overwrite
+r.mapcalc difference_2012_2016 = elevation_2016 - elevation_2012
+r.mapcalc difference_2012_2016 = elevation_2016 - elevation_2012 --overwrite
+r.mapcalc difference_2004_2016 = elevation_2016 - elevation_2004
+r.mapcalc difference_2004_2016 = elevation_2016 - elevation_2004 --overwrite
+r.mapcalc difference_2004_2012 = elevation_2012 - elevation_2004 --overwrite
+v.surf.rst input=points_2004 elevation=elevation_2004 tension=21 smooth=1 nprocs=6 --overwrite
+r.mapcalc difference_2004_2016 = elevation_2016 - elevation_2004
+r.mapcalc difference_2004_2016 = elevation_2016 - elevation_2004 --overwrite
+r.mapcalc difference_2004_2012 = elevation_2012 - elevation_2004
+r.mapcalc difference_2004_2012 = elevation_2012 - elevation_2004 --overwrite
+r.mapcalc difference_2012_2016 = elevation_2016 - elevation_2012 --overwrite
+r.colors map=difference_2004_2016@PERMANENT rules=/home/baharmon/landscape_evolution_dataset/nc_spm_evolution/color_difference.txt
+r.colors map=difference_2004_2016@PERMANENT,difference_2012_2016@PERMANENT,difference_2004_2012@PERMANENT rules=/home/baharmon/landscape_evolution_dataset/nc_spm_evolution/color_difference.txt
+r.relief input=elevation_2004 output=relief_2004 --overwrite
+r.relief input=elevation_2012 output=relief_2012 --overwrite
+r.relief input=elevation_2016 output=relief_2016 --overwrite
+r.skyview input=elevation_2004 output=skyview_2004 ndir=16 colorized_output=colorized_skyview_2004 --overwrite
+r.skyview input=elevation_2012 output=skyview_2012 ndir=16 colorized_output=colorized_skyview_2012 --overwrite
+r.skyview input=elevation_2016 output=skyview_2016 ndir=16 colorized_output=colorized_skyview_2016 --overwrite
+r.shade shade=relief_2004 color=colorized_skyview_2004 output=shaded_relief_2004 brighten=75 --overwrite
+r.shade shade=relief_2012 color=colorized_skyview_2012 output=shaded_relief_2012 brighten=75 --overwrite
+r.shade shade=relief_2016 color=colorized_skyview_2016 output=shaded_relief_2016 brighten=75 --overwrite
+r.geomorphon elevation=elevation_2004 forms=landforms_2004 search=64 skip=0 flat=1 dist=0 step=0 start=0 --overwrite
+r.geomorphon elevation=elevation_2012 forms=landforms_2012 search=64 skip=0 flat=1 dist=0 step=0 start=0 --overwrite
+r.geomorphon elevation=elevation_2016 forms=landforms_2016 search=64 skip=0 flat=1 dist=0 step=0 start=0 --overwrite
+r.sim.water elevation=elevation_2016 dx=dx dy=dy man=mannings depth=depth_2016 nwalkers=1000000 output_step=1 niterations=10 nprocs=6
+r.sim.water elevation=elevation_2016 dx=dx dy=dy man=mannings depth=depth_2016 nwalkers=1000000 output_step=1 niterations=10 nprocs=6 --overwrite
+g.remove -f type=raster name=dx,dy
+/home/baharmon/landscape_evolution/testing/render_sample_data.py
+/home/baharmon/landscape_evolution/testing/design_storm_simulations.py
+/home/baharmon/landscape_evolution/testing/design_storm_simulations.py
+g.extension r.evolution url=github.com/baharmon/landscape_evolution
+r.evolution
+r.evolution --ui
+/home/baharmon/landscape_evolution/testing/render_sample_data.py
+/home/baharmon/landscape_evolution/testing/render_sample_data.py
+/home/baharmon/landscape_evolution/testing/render_sample_data.py
+/home/baharmon/landscape_evolution/testing/render_sample_data.py
+/home/baharmon/landscape_evolution/testing/render_sample_data.py
+/home/baharmon/landscape_evolution/testing/render_sample_data.py
+/home/baharmon/landscape_evolution/testing/simulation_2013_2016.py
+r.out.xyz input=elevation_2016@PERMANENT output=/media/baharmon/Storage/landscape_evolution_model/elevation_2016.xyz separator=comma
+g.region res=0.3
+r.out.xyz input=elevation_2016@PERMANENT output=/media/baharmon/Storage/landscape_evolution_model/gully_2016.xyz separator=comma
+g.region region=subregion res=0.3
+r.out.xyz input=elevation_2016@PERMANENT output=/media/baharmon/Storage/landscape_evolution_model/gully_2016.xyz separator=comma
+/home/baharmon/landscape_evolution/testing/steady_state_simulations.py
+/home/baharmon/landscape_evolution/testing/steady_state_simulations.py
+/home/baharmon/landscape_evolution/testing/dynamic_simulations.py
+/home/baharmon/landscape_evolution/testing/dynamic_simulations_2.py
+/home/baharmon/landscape_evolution/testing/ss_flux.py
+/home/baharmon/landscape_evolution/testing/ss_flux.py
+/home/baharmon/landscape_evolution/testing/ss_flux.py
+/home/baharmon/landscape_evolution/testing/ss_flux.py
+/home/baharmon/landscape_evolution/testing/ss_erdep.py
+/home/baharmon/landscape_evolution/testing/ss_erdep.py
+/home/baharmon/landscape_evolution/testing/ss_erdep.py
+/home/baharmon/landscape_evolution/testing/ss_erdep.py
+/home/baharmon/landscape_evolution/testing/dynamic_simulations.py
+/home/baharmon/landscape_evolution/testing/design_storm_simulations.py
+/home/baharmon/landscape_evolution/testing/design_storm_simulations.py
+/home/baharmon/landscape_evolution/testing/design_storm_simulations.py
+/home/baharmon/landscape_evolution/testing/dynamic_simulations.py
+/home/baharmon/landscape_evolution/testing/design_storm_simulations.py
+/home/baharmon/landscape_evolution/testing/design_storm_simulations.py
+/home/baharmon/landscape_evolution/testing/design_storm_simulations.py
+/home/baharmon/landscape_evolution/testing/design_storm_simulations.py
+/home/baharmon/landscape_evolution/testing/design_storm_simulations.py
+/home/baharmon/landscape_evolution/testing/design_storm_simulations.py
+/home/baharmon/landscape_evolution/testing/design_storm_simulations.py
+/home/baharmon/landscape_evolution/testing/design_storm_simulations.py
+/home/baharmon/landscape_evolution/testing/design_storm_simulations.py
+/home/baharmon/landscape_evolution/testing/design_storm_simulations.py
+/home/baharmon/landscape_evolution/testing/simulation_2013_2016.py
+g.extension r.evolution url=github.com/baharmon/landscape_evolution
+/home/baharmon/landscape_evolution/r.evolution.py
+/home/baharmon/landscape_evolution/testing/steady_state_simulations.py
+exit
+/home/baharmon/landscape_evolution/testing/debug.py

@@ -1,10 +1,10 @@
 # set regions
 
 ## set patterson branch region
-g.region n=151030 s=150580 w=597195 e=597645 save=region res=1
+g.region n=151030 s=150580 w=597195 e=597645 save=region res=0.3
 
 ## set gully region
-g.region n=150870 s=150720 w=597290 e=597440 save=subregion res=1
+g.region n=150870 s=150720 w=597290 e=597440 save=subregion res=0.3
 
 ## set fort bragg region
 g.region n=160000 s=144000 w=587000 e=603000 save=fortbragg res=10
@@ -40,9 +40,9 @@ las2las 7884_1.las --scale 0.001 0.001 0.001 -o 7884_1_scaled.las
 las2las --a_srs=EPSG:2264 --t_srs=EPSG:3358 -i 7884_1_scaled.las -o ncspm_7884_1.las
 
 ## set region
-g.region region=region
+g.region region=region res=0.3
 
-## compute digital elevation model for 2004
+## compute digital elevation model for 2004 at 30cm resolution
 
 v.in.lidar -r -t input=fort_bragg_data/ncspm_be3710945900go20040820.las output=be3710945900go20040820
 
@@ -66,9 +66,9 @@ g.remove -f type=vector name=fill_2004
 
 g.remove -f type=raster name=kernel_2004,voids_2004
 
-v.surf.rst input=points_2004 elevation=elevation_2004 tension=30 smooth=1
+v.surf.rst input=points_2004 elevation=elevation_2004 tension=30 smooth=1 nprocs=6
 
-## compute digital elevation model for 2012
+## compute digital elevation model for 2012 at 30cm resolution
 
 v.in.lidar -r -t input=fort_bragg_data/I-08_spm.las output=i_08 class_filter=2
 
@@ -78,9 +78,9 @@ v.patch input=i_08,j_08 output=points_2012
 
 g.remove -f type=vector name=i_08,j_08
 
-v.surf.rst input=points_2012 elevation=elevation_2012 tension=10 smooth=1
+v.surf.rst input=points_2012 elevation=elevation_2012 tension=21 smooth=1 nprocs=6
 
-## compute digital elevation model for 2016
+## compute digital elevation model for 2016 at 30cm resolution
 
 v.in.lidar -r -t input=fort_bragg_data/ncspm_7884_1.las output=points_2016
 
@@ -98,7 +98,7 @@ g.remove -f type=vector name=fill_2016
 
 g.remove -f type=raster name=kernel_2016,voids_2016
 
-v.surf.rst input=points_2016 elevation=elevation_2016 tension=7 smooth=1
+v.surf.rst input=points_2016 elevation=elevation_2016 tension=21 smooth=1 nprocs=6
 
 ## compute differences in time series
 
@@ -113,16 +113,6 @@ r.colors map=difference_2004_2012 rules=color_difference.txt
 r.colors map=difference_2004_2012 rules=color_difference.txt
 
 r.colors map=difference_2012_2016 rules=color_difference.txt
-
-## compute watershed
-
-r.watershed elevation=elevation_2016 threshold=300000 basin=watersheds
-
-r.mapcalc "watershed = if(watersheds == 4, 1, null())"
-
-r.to.vect -s input=watershed output=watershed type=area
-
-g.remove -f type=raster name=watersheds,watershed
 
 ## fix lidar shift
 
@@ -150,11 +140,23 @@ r.in.lidar input=fort_bragg_data/ncspm_I-08.las output=vegetation_2012 method=ma
 
 r.colors map=vegetation_2012 color=viridis
 
+# watershed
+
+g.region region=region res=1
+
+r.watershed elevation=elevation_2016 threshold=300000 basin=watersheds
+
+r.mapcalc "watershed = if(watersheds == 4, 1, null())"
+
+r.to.vect -s input=watershed output=watershed type=area
+
+g.remove -f type=raster name=watersheds,watershed
+
 # imagery
 
 ## import imagery web mapping services
 
-g.region res=1
+g.region region=region res=1
 
 r.in.wms url=https://nccoastalatlas.org/geoserver/ows?service=wms output=naip_2009 layers=naip2009:img srs=4326 wms_version=1.3.0
 
@@ -238,6 +240,8 @@ g.remove -f type=raster name=soil_types,recode_naip_2014,classification_naip_201
 
 # terrain analysis
 
+g.region region=region res=0.3
+
 ## hillshade
 
 r.relief input=elevation_2004 output=relief_2004
@@ -268,21 +272,21 @@ r.contour input=elevation_2016 output=contours_2016 step=1
 ## landforms
 g.extension extension=r.geomorphon operation=add
 
-r.geomorphon elevation=elevation_2004 forms=landforms_2004 search=24 skip=0 flat=1 dist=0 step=0 start=0
+r.geomorphon elevation=elevation_2004 forms=landforms_2004 search=64 skip=0 flat=1 dist=0 step=0 start=0
 
-r.geomorphon elevation=elevation_2012 forms=landforms_2012 search=24 skip=0 flat=1 dist=0 step=0 start=0
+r.geomorphon elevation=elevation_2012 forms=landforms_2012 search=64 skip=0 flat=1 dist=0 step=0 start=0
 
-r.geomorphon elevation=elevation_2016 forms=landforms_2016 search=24 skip=0 flat=1 dist=0 step=0 start=0
+r.geomorphon elevation=elevation_2016 forms=landforms_2016 search=64 skip=0 flat=1 dist=0 step=0 start=0
 
 ## water flow
 r.slope.aspect elevation=elevation_2016 dx=dx dy=dy
 
-r.sim.water elevation=elevation_2016 dx=dx dy=dy man=mannings depth=depth_2016 nwalkers=5000000 output_step=1 niterations=10
+r.sim.water elevation=elevation_2016 dx=dx dy=dy man=mannings depth=depth_2016 nwalkers=1000000 output_step=1 niterations=10 nprocs=6
 
 g.remove -f type=raster name=dx,dy
 
 # gully data for blender
-g.region region=subregion
+g.region region=subregion res=0.3
 
 r.mapcalc "elevation_2016=elevation_2016
 
