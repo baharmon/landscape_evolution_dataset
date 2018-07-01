@@ -608,3 +608,5 @@ r.info map=landcover@PERMANENT
 /home/baharmon/landscape_evolution/testing/render_sample_data.py
 /home/baharmon/landscape_evolution/testing/render_sample_data.py
 /home/baharmon/landscape_evolution/testing/render_sample_data.py
+/Users/Brendan/landscape_evolution/testing/render_sample_data.py
+/Users/Brendan/landscape_evolution/testing/render_sample_data.py

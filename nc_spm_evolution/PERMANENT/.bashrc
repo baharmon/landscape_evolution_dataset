@@ -1,5 +1,5 @@
 test -r ~/.alias && . ~/.alias
-PS1='GRASS 7.4.1svn (nc_spm_evolution):\w > '
+PS1='GRASS 7.3.svn (nc_spm_evolution):\w > '
 grass_prompt() {
 	LOCATION="`g.gisenv get=GISDBASE,LOCATION_NAME,MAPSET separator='/'`"
 	if test -d "$LOCATION/grid3/G3D_MASK" && test -f "$LOCATION/cell/MASK" ; then
@@ -11,5 +11,5 @@ grass_prompt() {
 	fi
 }
 PROMPT_COMMAND=grass_prompt
-export PATH="/usr/local/grass-7.4.1svn/bin:/usr/local/grass-7.4.1svn/scripts:/home/baharmon/.grass7/addons/bin:/home/baharmon/.grass7/addons/scripts:/home/baharmon/landscape_evolution/testing:/home/baharmon/panama_hydrological_modeling/utilities:/home/baharmon/landscape_evolution:/home/baharmon/landscape_evolution/testing:/home/baharmon/panama_hydrological_modeling/utilities:/home/baharmon/landscape_evolution:/home/baharmon/landscape_evolution/testing:/home/baharmon/panama_hydrological_modeling/utilities:/home/baharmon/landscape_evolution:/home/baharmon/bin:/home/baharmon/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/local/:/snap/bin"
-export HOME="/home/baharmon"
+export PATH="/Applications/GRASS-7.3.app/Contents/MacOS/bin:/Applications/GRASS-7.3.app/Contents/MacOS/scripts:/Users/Brendan/Library/GRASS/7.3/Modules/bin:/Users/Brendan/Library/GRASS/7.3/Modules/scripts:/Users/Brendan/Grass Data/WebPublishing2/r.out.leaflet-master/r.out.leaflet:/Users/Brendan/landscape_evolution:/Volumes/grey/fort_bragg/code:/Users/Brendan/Grass Data/WebPublishing2/r.out.leaflet-master/r.out.leaflet:/Users/Brendan/landscape_evolution:/Volumes/grey/fort_bragg/code:/Users/Brendan/Grass Data/WebPublishing2/r.out.leaflet-master/r.out.leaflet:/Users/Brendan/landscape_evolution:/Volumes/grey/fort_bragg/code:-framework GDAL/Library/Frameworks/PROJ.framework/Programs:/usr/bin:/usr/local/Cellar/python/2.7.11/bin:/Users/Brendan/anaconda/bin:/Library/Frameworks/Python.framework/Versions/2.7/bin:/usr/local/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/opt/keckcaves/bin:/usr/local/git/bin:/Library/TeX/texbin"
+export HOME="/Users/Brendan"
