@@ -33,11 +33,6 @@
 /images/ss_transport/**
 /images/ss_usped/**
 /images/usped/**
-#!/images/
-#/images/**
-#!/images/sample_data/
-#!/images/sample_data_3d/
-
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
