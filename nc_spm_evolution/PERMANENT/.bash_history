@@ -559,3 +559,52 @@ g.extension r.evolution url=github.com/baharmon/landscape_evolution
 /home/baharmon/landscape_evolution/testing/steady_state_simulations.py
 exit
 /home/baharmon/landscape_evolution/testing/debug.py
+/home/baharmon/landscape_evolution/testing/steady_state_simulations.py
+/home/baharmon/landscape_evolution/testing/steady_state_simulations.py
+/home/baharmon/landscape_evolution/testing/sandbox/ss_flux.py
+exit
+/home/baharmon/landscape_evolution/testing/sandbox/ss_flux.py
+/home/baharmon/landscape_evolution/testing/sandbox/ss_rusle.py
+/home/baharmon/landscape_evolution/testing/sandbox/ss_rusle.py
+/home/baharmon/landscape_evolution/testing/simulation_2013_2016.py
+/home/baharmon/landscape_evolution/testing/bragg_simulations.py
+/home/baharmon/landscape_evolution/testing/bragg_simulations.py
+/home/baharmon/landscape_evolution/testing/fractal_simulations.py
+/home/baharmon/landscape_evolution/testing/fractal_simulations.py
+/home/baharmon/landscape_evolution/testing/dynamic_simulations.py
+/home/baharmon/landscape_evolution/testing/dynamic_simulations.py
+/home/baharmon/landscape_evolution/testing/dynamic_simulations.py
+g.extension r.evolution url=github.com/baharmon/landscape_evolution
+/home/baharmon/landscape_evolution/testing/dynamic_simulations.py
+/home/baharmon/landscape_evolution/testing/bragg_simulations.py
+/home/baharmon/landscape_evolution/testing/design_storm_simulations.py
+/home/baharmon/landscape_evolution/sandbox/design_storm.py
+/home/baharmon/landscape_evolution/sandbox/design_storm.py
+/home/baharmon/landscape_evolution/testing/design_storm_simulations.py
+/home/baharmon/landscape_evolution/testing/simulation_2004_2016.py
+/home/baharmon/landscape_evolution/testing/design_storm_simulations.py
+r.info map=elevation_2012@PERMANENT
+r.info map=elevation_2016@PERMANENT
+r.info map=elevation_2012@PERMANENT
+g.region res=1
+g.mapset
+g.region raster=elevation_2016 res=1
+g.mapset -c mapset=fractal_ss_erdep
+g.mapset mapset=subregion -c
+g.mapset mapset=fractal_ss_erdep
+/home/baharmon/landscape_evolution/testing/sandbox/ss_rusle.py
+/home/baharmon/landscape_evolution/testing/dynamic_simulations.py
+/home/baharmon/landscape_evolution/testing/dynamic_simulations.py
+/home/baharmon/landscape_evolution/testing/sandbox/dynamic_models.py
+exit
+r.report
+r.stats -p input=landcover@PERMANENT
+r.univar map=soils@PERMANENT
+r.stats
+r.stats -p input=soils@PERMANENT
+r.info map=landcover@PERMANENT
+/home/baharmon/landscape_evolution/testing/render_sample_data.py
+/home/baharmon/landscape_evolution/testing/render_sample_data.py
+/home/baharmon/landscape_evolution/testing/render_sample_data.py
+/home/baharmon/landscape_evolution/testing/render_sample_data.py
+/home/baharmon/landscape_evolution/testing/render_sample_data.py

@@ -1,6 +1,21 @@
 # directories
-renderings/
-renderings/*
+/bragg_rusle/**
+/bragg_usped/**
+/design_erdep/**
+/erdep/**
+/erdep_3yr/**
+/flux/**
+/fractal_ss_erdep/**
+/fractal_ss_flux/**
+/fractal_ss_rusle/**
+/fractal_ss_usped/**
+/rusle/**
+/ss_erdep/**
+/ss_flux/**
+/ss_rusle/**
+/ss_transport/**
+/ss_usped/**
+/usped/**
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

@@ -1,6 +1,25 @@
 # directories
-renderings/
-renderings/*
+/nc_spm_evolution/bragg_rusle/**
+/nc_spm_evolution/bragg_usped/**
+/nc_spm_evolution/design_erdep/**
+/nc_spm_evolution/erdep/**
+/nc_spm_evolution/erdep_3yr/**
+/nc_spm_evolution/flux/**
+/nc_spm_evolution/fractal_ss_erdep/**
+/nc_spm_evolution/fractal_ss_flux/**
+/nc_spm_evolution/fractal_ss_rusle/**
+/nc_spm_evolution/fractal_ss_usped/**
+/nc_spm_evolution/rusle/**
+/nc_spm_evolution/ss_erdep/**
+/nc_spm_evolution/ss_flux/**
+/nc_spm_evolution/ss_rusle/**
+/nc_spm_evolution/ss_transport/**
+/nc_spm_evolution/ss_usped/**
+/nc_spm_evolution/usped/**
+!/images/
+/images/**
+!/images/sample_data/
+!/images/sample_data_3d/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
