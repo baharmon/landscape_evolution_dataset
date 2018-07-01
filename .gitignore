@@ -16,10 +16,28 @@
 /nc_spm_evolution/ss_transport/**
 /nc_spm_evolution/ss_usped/**
 /nc_spm_evolution/usped/**
-!/images/
-/images/**
-!/images/sample_data/
-!/images/sample_data_3d/
+/images/bragg_rusle/**
+/images/bragg_usped/**
+/images/design_erdep/**
+/images/erdep/**
+/images/erdep_3yr/**
+/images/flux/**
+/images/fractal_ss_erdep/**
+/images/fractal_ss_flux/**
+/images/fractal_ss_rusle/**
+/images/fractal_ss_usped/**
+/images/rusle/**
+/images/ss_erdep/**
+/images/ss_flux/**
+/images/ss_rusle/**
+/images/ss_transport/**
+/images/ss_usped/**
+/images/usped/**
+#!/images/
+#/images/**
+#!/images/sample_data/
+#!/images/sample_data_3d/
+
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
