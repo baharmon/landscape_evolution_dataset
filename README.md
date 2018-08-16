@@ -2,7 +2,7 @@
 
 # Landscape evolution dataset
 A sample dataset for the
-[r.evolution](https://github.com/baharmon/landscape_evolution)
+[r.sim.terrain](https://github.com/baharmon/landscape_evolution)
 landscape evolution model.
 This dataset includes
 the [GRASS GIS](grass.osgeo.org) location **nc_spm_evolution**.
@@ -19,8 +19,8 @@ and metadata.
 The mapset includes:
 1. a 10-meter resolution digital elevation model for 2012 for Fort Bragg
 2. a time series of 1-meter resolution digital elevation models for 2004, 2014, and 2016
-for near a highly eroded watershed near Patterson Branch Creek on Fort Bragg
-3. 1-meter resolution orthoimagery for 2006, 2009, 2010, 2012, and 2014 for the watershed
+for near a highly eroded subwatershed near Patterson Branch Creek on Fort Bragg
+3. 1-meter resolution orthoimagery for 2006, 2009, 2010, 2012, and 2014 for the subwatershed
 4. derived data including shaded relief, landforms, and landcover
 
 Elevation 2004 | Elevation 2016
