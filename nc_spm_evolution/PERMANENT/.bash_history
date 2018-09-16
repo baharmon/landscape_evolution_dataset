@@ -618,3 +618,42 @@ r.unpack -o input=/home/baharmon/Downloads/fortbragg_landcover.pack output=fortb
 r.unpack -o input=/home/baharmon/Downloads/fortbragg_cfactor.pack output=fortbragg_cfactor
 r.unpack -o input=/home/baharmon/Downloads/fortbragg_erdep.pack output=fortbragg_erdep
 r.unpack -o input=/home/baharmon/Downloads/fortbragg_erdep_class.pack output=fortbragg_classified_erdep
+r.watershed elevation=elevation_2016 accumulation=flow_accumulation_2016
+r.mapcalc ls_factor=(0.4+1.0)*((flow_accumulation_2016/22.1)^0.4)*((sin(slope_2016)/0.09)^1.3)
+r.mp
+r.mapcalc
+r.mapcalc ls_factor=(0.4+1.0)*((flow_accumulation_2016/22.1)^0.4)*((sin(slope_2016)/0.09)^1.3)
+r.mapcalc expression=ls_factor = (0.4+1.0)*((flow_accumulation_2016/22.1)^0.4)*((sin(slope_2016)/0.09)^1.3)
+r.slope.aspect
+r.slope.aspect elevation=elevation_2016@PERMANENT slope=slope_2016
+r.mapcalc expression=ls_factor = (0.4+1.0)*((flow_accumulation_2016/22.1)^0.4)*((sin(slope_2016)/0.09)^1.3)
+r.colors map=ls_factor color=viridis -e
+r.mapcalc --overwrite expression=ls_factor = (0.4+1.0)*((flow_accumulation_2016/22.1)^0.4)*((sin(slope_2016)/5.14)^1.3)
+r.colors map=ls_factor color=viridis -e
+r.mask
+r.mask -r
+r.slope.aspect
+r.slope.aspect --overwrite elevation=elevation_2016@PERMANENT slope=slope_2016 format=percent
+r.mapcalc --overwrite expression=ls_factor = (0.4+1.0)*((flow_accumulation_2016/22.1)^0.4)*((sin(slope_2016)/9)^1.3)
+r.slope.aspect --overwrite elevation=elevation_2016@PERMANENT slope=slope_2016 format=percent
+r.colors map=ls_factor color=viridis -e
+r.slope.aspect --overwrite elevation=elevation_2016@PERMANENT slope=slope_2016
+r.mapcalc --overwrite expression=ls_factor = (0.4+1.0)*((flow_accumulation_2016/22.1)^0.4)*((sin(slope_2016)/5.14)^1.3)
+r.mapcalc
+r.mapcalc expression=sediment_flow = 310.0*k_factor*ls_factor*c_factor
+r.colors map=sediment_flow color=viridis -e
+g.remove
+g.remove -f type=raster name=ls_factor@PERMANENT,sediment_flow@PERMANENT
+r..sim.sediment
+r.sim.sediment
+r.slope.aspect
+r.slope.aspect elevation=elevation_2016@PERMANENT dx=dx dy=dy
+g.remove
+r.mapcalc
+r.mapcalc expression=detachment = 0.001
+r.mapcalc expression=transport = 0.001
+r.mapcalc expression=shear_stress = 0.0
+r.sim.sediment elevation=elevation_2016 water_depth=depth_2016 dx=dx dy=dy detachment_coeff=detachment transport_coeff=transport shear_stress=shear_stress man=mannings sediment_flux=sediment_flux_2016 erosion_deposition=erosion_deposition_2016 nwalkers=1000000 output_step=1 nprocs=6
+g.remove -f type=raster name=dx,dy,detachment,transport,shear_stress
+r.mapcalc
+exit
