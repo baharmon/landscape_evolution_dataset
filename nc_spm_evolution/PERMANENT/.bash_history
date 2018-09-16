@@ -611,3 +611,9 @@ r.info map=landcover@PERMANENT
 /Users/Brendan/landscape_evolution/testing/render_sample_data.py
 /Users/Brendan/landscape_evolution/testing/render_sample_data.py
 exit
+exit
+exit
+/Users/Brendan/landscape_evolution/testing/render_sample_data.py
+exit
+exit
+exit
