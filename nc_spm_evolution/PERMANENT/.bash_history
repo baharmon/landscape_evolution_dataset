@@ -611,9 +611,10 @@ r.info map=landcover@PERMANENT
 /Users/Brendan/landscape_evolution/testing/render_sample_data.py
 /Users/Brendan/landscape_evolution/testing/render_sample_data.py
 exit
-exit
-exit
 /Users/Brendan/landscape_evolution/testing/render_sample_data.py
 exit
-exit
-exit
+r.unpack
+r.unpack -o input=/home/baharmon/Downloads/fortbragg_landcover.pack output=fortbragg_landcover
+r.unpack -o input=/home/baharmon/Downloads/fortbragg_cfactor.pack output=fortbragg_cfactor
+r.unpack -o input=/home/baharmon/Downloads/fortbragg_erdep.pack output=fortbragg_erdep
+r.unpack -o input=/home/baharmon/Downloads/fortbragg_erdep_class.pack output=fortbragg_classified_erdep

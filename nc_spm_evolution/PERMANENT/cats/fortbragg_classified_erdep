@@ -1,0 +1,11 @@
+# 7 categories
+
+
+0.00 0.00 0.00 0.00
+1:high erosion >10.0 tons/(acre.year)
+2:moderate erosion 5.0-10.0 tons/(acre.year)
+3:low erosion 0.1-5.0 tons/(acre.year)
+4:stable <0.1 tons/(acre.year)
+5:low deposition 0.1-5.0 tons/(acre.year)
+6:moderate deposition 5.0-10.0 tons/(acre.year)
+7:high deposition >10.0 tons/(acre.year)
