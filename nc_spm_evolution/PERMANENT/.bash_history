@@ -657,3 +657,62 @@ r.sim.sediment elevation=elevation_2016 water_depth=depth_2016 dx=dx dy=dy detac
 g.remove -f type=raster name=dx,dy,detachment,transport,shear_stress
 r.mapcalc
 exit
+g.region raster=elevation_2016@PERMANENT
+g.region raster=elevation_2016@PERMANENT
+r.mapcalc
+r.mapcalc expression=ls_factor = (0.4+1.0)*((flow_accumulation_2016/22.1)^0.4)*((sin(slope_2016)/5.14)^1.3)
+r.mapcalc --overwrite expression=ls_factor = (0.4+1.0)*((flow_accumulation_2016/22.1)^0.4)
+r.mapcalc --overwrite expression=ls_factor = ((sin(slope_2016)/5.14)^1.3)
+r.mapcalc --overwrite expression=ls_factor = ((flow_accumulation_2016/22.1)^0.4)*((sin(slope_2016)/5.14)^1.3)
+r.mapcalc --overwrite expression=ls_factor = (0.4+1.0)*((flow_accumulation_2016)^0.4)*((sin(slope_2016)/5.14)^1.3)
+r.mapcalc --overwrite expression=ls_factor = (0.4+1.0)*((flow_accumulation_2016/22.1))*((sin(slope_2016)/5.14)^1.3)
+r.mapcalc --overwrite expression=ls_factor = (0.4+1.0)*((flow_accumulation_2016/22.1)^1)*((sin(slope_2016)/5.14)^1.3)
+r.mapcalc --overwrite expression=ls_factor = (0.4+1.0)*((flow_accumulation_2016/22.1)^0.9)*((sin(slope_2016)/5.14)^1.3)
+r.mapcalc --overwrite expression=ls_factor = (0.4+1.0)*((flow_accumulation_2016/22.1)^1.2)*((sin(slope_2016)/5.14)^1.3)
+r.mapcalc --overwrite expression=ls_factor = (0.4+1.0)*((flow_accumulation_2016/22.1)^1.2)*((sin(slope_2016)/5.14)^1.3)
+r.mapcalc --overwrite expression=ls_factor = (0.4+1.0)*(flow_accumulation_2016/22.1)^0.4*((sin(slope_2016)/5.14)^1.3)
+r.mapcalc --overwrite expression=ls_factor = (0.4+1.0)*((flow_accumulation_2016/22.1)^0.4)*((sin(slope_2016)/5.14)^1.3)
+r.mapcalc --overwrite expression=ls_factor = ((0.4+1.0)*(flow_accumulation_2016/22.1)^0.4)*((sin(slope_2016)/5.14)^1.3)
+r.mapcalc --overwrite expression=ls_factor = (0.4+1.0)*(flow_accumulation_2016/22.1)^0.4*((sin(slope_2016)/5.14)^1.3)
+r.mapcalc --overwrite expression=ls_factor = (0.4+1.0)*flow_accumulation_2016/22.1^0.4*((sin(slope_2016)/5.14)^1.3)
+r.mapcalc --overwrite expression=ls_factor = (0.4+1.0)*(flow_accumulation_2016/22.1)^0.4*((sin(slope_2016)/5.14)^1.3)
+r.mapcalc --overwrite expression=ls_factor = (0.4+1.0)*(flow_accumulation_2016^0.4/22.1)*((sin(slope_2016)/5.14)^1.3)
+r.watershed
+r.watershed -a --overwrite elevation=elevation_2016 accumulation=flow_accumulation
+r.mapcalc --overwrite expression=ls_factor = (0.4+1.0)*((flow_accumulation_2016/22.1)^0.4)*((sin(slope_2016)/5.14)^1.3)
+r.mapcalc --overwrite expression=ls_factor = (0.4+1.0)*((flow_accumulation_2016/22.1)^0.4)*((sin(slope_2016)/5.14)^1.3)
+r.colors map=ls_factor color=viridis -e
+g.rename
+g.rename raster=flow_accumulation,flow_accumulation_2016
+g.rename --overwrite raster=flow_accumulation,flow_accumulation_2016
+r.mapcalc --overwrite expression=ls_factor = (0.4+1.0)*((flow_accumulation_2016/22.1)^0.4)*((sin(slope_2016)/5.14)^1.3)
+r.colors map=ls_factor color=viridis -e
+r.mapcalc --overwrite expression=sediment_flow = 310.0*k_factor*ls_factor*c_factor
+r.mapcalc --overwrite expression=converted_flow = sediment_flow*1000./10000.
+r.colors map=converted_flow color=viridis -e
+g.rename
+g.rename --overwrite raster=converted_flow@PERMANENT,sediment_flow
+r.colors -e map=sediment_flow@PERMANENT color=viridis
+r.colors -a map=sediment_flow@PERMANENT color=viridis
+r.colors map=sediment_flow@PERMANENT color=viridis
+r.colors -e map=sediment_flow@PERMANENT color=viridis
+/Users/Brendan/landscape_evolution/testing/render_sample_data.py
+/Users/Brendan/landscape_evolution/testing/render_sample_data.py
+/Users/Brendan/landscape_evolution/testing/render_sample_data.py
+/Users/Brendan/landscape_evolution/testing/render_sample_data.py
+g.rename
+g.rename
+g.rename raster=sediment_flow@PERMANENT,sediment_flow_2016
+g.rename raster=sediment_flow@PERMANENT,sediment_flow_2016
+/Users/Brendan/landscape_evolution/testing/render_sample_data.py
+/Users/Brendan/landscape_evolution/testing/render_sample_data.py
+d.vect
+/Users/Brendan/landscape_evolution/testing/render_sample_data.py
+/Users/Brendan/landscape_evolution/testing/render_sample_data.py
+/Users/Brendan/landscape_evolution/testing/render_sample_data.py
+/Users/Brendan/landscape_evolution/testing/render_sample_data.py
+/Users/Brendan/landscape_evolution/testing/render_sample_data.py
+/Users/Brendan/landscape_evolution/testing/render_sample_data.py
+/Users/Brendan/landscape_evolution/testing/render_sample_data.py
+/Users/Brendan/landscape_evolution/testing/render_sample_data.py
+exit

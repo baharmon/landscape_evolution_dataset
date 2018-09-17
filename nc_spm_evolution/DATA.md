@@ -116,7 +116,7 @@ r.colors map=vegetation_2012 color=viridis
 # watershed
 ```
 g.region region=region res=1
-r.watershed elevation=elevation_2016 threshold=300000 basin=watersheds accumulation=flow_accumulation_2016
+r.watershed elevation=elevation_2016 threshold=300000 basin=watersheds
 r.mapcalc "watershed = if(watersheds == 4, 1, null())"
 r.to.vect -s input=watershed output=watershed type=area
 g.remove -f type=raster name=watersheds,watershed
@@ -217,14 +217,14 @@ r.geomorphon elevation=elevation_2016 forms=landforms_2016 search=64 skip=0 flat
 
 ## sediment flow with RULSE3D
 ```
+r.watershed elevation=elevation_2016 accumulation=flow_accumulation_2016 -a
 r.slope.aspect elevation=elevation_201 slope=slope_2016
 r.mapcalc "ls_factor=(0.4+1.0)*((flow_accumulation_2016/22.1)^0.4)*((sin(slope_2016)/5.14)^1.3)"
 r.colors map=ls_factor color=viridis -e
-r.mapcalc "sediment_flow=310.0*k_factor*ls_factor*c_factor"
-r.mapcalc "converted_flow=sediment_flow*1000./10000."
-r.mapcalc expression="sediment_flow = if(converted_flow <= 36.0, converted_flow, 36.0)"
-g.remove -f type=raster name=converted_flow
-r.colors map=sediment_flow color=viridis -e
+r.mapcalc "sediment_flow_2016=310.0*k_factor*ls_factor*c_factor"
+r.mapcalc "converted_flow=sediment_flow_2016*1000./10000."
+g.rename raster=converted_flow,sediment_flow_2016 --overwrite
+r.colors map=sediment_flow_2016 color=viridis -e
 ```
 
 ## water flow with SIMWE
