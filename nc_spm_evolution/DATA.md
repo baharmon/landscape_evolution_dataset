@@ -12,7 +12,7 @@ g.region n=150870 s=150720 w=597290 e=597440 save=subregion res=0.3
 
 ## set fort bragg region
 ```
-g.region n=160000 s=144000 w=587000 e=603000 save=fortbragg res=10
+g.region raster=fortbragg_elevation_10m_2012T save=fortbragg res=10
 ```
 
 # lidar

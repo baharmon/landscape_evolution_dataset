@@ -716,3 +716,25 @@ d.vect
 /Users/Brendan/landscape_evolution/testing/render_sample_data.py
 /Users/Brendan/landscape_evolution/testing/render_sample_data.py
 exit
+/home/baharmon/landscape_evolution/testing/dynamic_simulations.py
+/home/baharmon/landscape_evolution/testing/dynamic_usped.py
+/home/baharmon/landscape_evolution/testing/steady_state_rusle.py
+/home/baharmon/landscape_evolution/testing/steady_state_usped.py
+g.extension extension=r.skyview
+g.extension r.sim.terrain url=github.com/baharmon/landscape_evolution
+g.extension extension=r.stream*
+g.extension extension=r.stream
+g.extension extension=r.stream.distance
+g.extension extension=r.stream.order
+/home/baharmon/landscape_evolution/testing/steady_state_usped.py
+g.region
+g.region --overwrite raster=fortbragg_elevation_10m_2012@PERMANENT save=fortbragg
+/home/baharmon/landscape_evolution/scripts/render_sample_data.py
+/home/baharmon/landscape_evolution/scripts/render_sample_data.py
+/home/baharmon/landscape_evolution/scripts/render_sample_data.py
+/home/baharmon/landscape_evolution/scripts/render_sample_data.py
+/home/baharmon/landscape_evolution/scripts/render_sample_data.py
+/home/baharmon/landscape_evolution/scripts/render_sample_data.py
+/home/baharmon/landscape_evolution/scripts/render_sample_data.py
+/home/baharmon/landscape_evolution/scripts/bragg_simulations.py
+g.mapset mapset=ss_erdep
