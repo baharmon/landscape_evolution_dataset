@@ -738,3 +738,6 @@ g.region --overwrite raster=fortbragg_elevation_10m_2012@PERMANENT save=fortbrag
 /home/baharmon/landscape_evolution/scripts/render_sample_data.py
 /home/baharmon/landscape_evolution/scripts/bragg_simulations.py
 g.mapset mapset=ss_erdep
+g.extension.all -f
+g.remove
+g.remove -f type=raster name=relief@PERMANENT
