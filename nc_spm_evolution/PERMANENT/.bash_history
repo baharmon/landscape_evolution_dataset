@@ -741,3 +741,8 @@ g.mapset mapset=ss_erdep
 g.extension.all -f
 g.remove
 g.remove -f type=raster name=relief@PERMANENT
+/home/baharmon/landscape_evolution/scripts/render_sample_data.py
+/home/baharmon/landscape_evolution/scripts/render_sample_data.py
+/home/baharmon/landscape_evolution/scripts/render_sample_data.py
+/home/baharmon/landscape_evolution/scripts/render_sample_data.py
+/home/baharmon/landscape_evolution/scripts/render_sample_data.py
