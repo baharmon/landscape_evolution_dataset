@@ -746,3 +746,6 @@ g.remove -f type=raster name=relief@PERMANENT
 /home/baharmon/landscape_evolution/scripts/render_sample_data.py
 /home/baharmon/landscape_evolution/scripts/render_sample_data.py
 /home/baharmon/landscape_evolution/scripts/render_sample_data.py
+g.region res=1
+r.colors
+r.colors map=sediment_flux_2016@PERMANENT,sediment_flow_2016@PERMANENT rules=/home/baharmon/landscape_evolution_dataset/nc_spm_evolution/color_sedflux.txt
