@@ -17,11 +17,11 @@ rules for recoding data,
 and metadata.
 
 The mapset includes:
-1. a 10-meter resolution digital elevation model for 2012 for Fort Bragg
-2. a time series of 1-meter resolution digital elevation models for 2004, 2014, and 2016
-for near a highly eroded subwatershed near Patterson Branch Creek on Fort Bragg
-3. 1-meter resolution orthoimagery for 2006, 2009, 2010, 2012, and 2014 for the subwatershed
-4. derived data including shaded relief, landforms, and landcover
+* 10-meter resolution digital elevation model for 2012 for Fort Bragg
+* 1-meter resolution digital elevation models from 2004, 2014, and 2016
+for a highly eroded subwatershed near Patterson Branch Creek on Fort Bragg
+* 1-meter resolution orthoimagery of the subwatershed from 2006, 2009, 2010, 2012, and 2014
+* derived data including shaded relief, landforms, and landcover
 
 Elevation 2004 | Elevation 2016
 :-------------------------:|:-------------------------:
