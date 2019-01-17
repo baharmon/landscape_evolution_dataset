@@ -1,4 +1,5 @@
 [![License: ODbL](https://img.shields.io/badge/License-ODbL-brightgreen.svg)](https://opendatacommons.org/licenses/odbl/)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.2542929.svg)](https://doi.org/10.5281/zenodo.2542929)
 
 # Landscape evolution dataset
 A sample dataset for the
