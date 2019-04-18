@@ -5,11 +5,6 @@
 g.region n=151030 s=150580 w=597195 e=597645 save=region res=0.3
 ```
 
-## set gully region
-```
-g.region n=150870 s=150720 w=597290 e=597440 save=subregion res=0.3
-```
-
 ## set fort bragg region
 ```
 g.region raster=fortbragg_elevation_10m_2012T save=fortbragg res=10
@@ -119,7 +114,18 @@ g.region region=region res=1
 r.watershed elevation=elevation_2016 threshold=300000 basin=watersheds
 r.mapcalc "watershed = if(watersheds == 4, 1, null())"
 r.to.vect -s input=watershed output=watershed type=area
+g.remove -f type=raster name=subwatersheds,subwatershed
+```
+
+## subwatershed
+```
+r.mask vector=watershed
+r.watershed elevation=elevation_2016 threshold=50000 basin=subwatersheds
+r.to.vect -s input=subwatersheds output=subwatersheds type=area
+r.mapcalc "subwatershed = if(subwatersheds == 12, 1, null())"
+r.to.vect -s input=subwatershed output=subwatershed type=area
 g.remove -f type=raster name=watersheds,watershed
+g.region vector=subwatershed res=1 save=subregion
 ```
 
 # imagery
@@ -245,7 +251,7 @@ g.remove -f type=raster name=dx,dy,detachment,transport,shear_stress
 
 # gully data for blender
 ```
-g.region region=subregion res=0.3
+g.region region=subregion res=1
 r.mapcalc "elevation_2016=elevation_2016
 r.mapcalc "elevation_2004=elevation_2004
 r.mapcalc "bare = if(landcover == 31 , 1, 0)"

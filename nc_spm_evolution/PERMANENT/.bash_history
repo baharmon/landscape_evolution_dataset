@@ -749,3 +749,38 @@ g.remove -f type=raster name=relief@PERMANENT
 g.region res=1
 r.colors
 r.colors map=sediment_flux_2016@PERMANENT,sediment_flow_2016@PERMANENT rules=/home/baharmon/landscape_evolution_dataset/nc_spm_evolution/color_sedflux.txt
+/home/baharmon/landscape_evolution/scripts/dynamic_rusle.py
+g.extension extension=r.sim.terrain url=github.com/baharmon/landscape_evolution
+r.sim.terrain
+r.sim.terrain --ui
+g.extension
+g.extension extension=r.erosion operation=add url=/home/baharmon/r.erosion/r.erosion.py
+g.extension extension=r.erosion operation=add url=/home/baharmon/r.erosion
+g.extension extension=r.erosion operation=add url=/home/baharmon/r.erosion
+g.extension extension=r.erosion operation=add url=/home/baharmon/r.erosion
+r.erosion
+r.watershed elevation=elevation_2016 threshold=50000 basin=subwatersheds
+r.mask
+r.mask vector=watershed@PERMANENT
+r.watershed elevation=elevation_2016 threshold=50000 basin=subwatersheds --overwrite
+r.to.vect -s input=subwatersheds output=subwatersheds type=area
+r.mapcalc subwatershed = if(subwatersheds == 12, 1, null())
+r.to.vect -s input=subwatershed output=subwatershed type=area
+g.remove -f type=raster name=subwatershed
+g.remove -f type=raster name=subwatersheds
+r.mask vector=subwatershed@PERMANENT
+r.mask -r vector=subwatershed@PERMANENT
+r.mask -r vector=subwatershed@PERMANENT
+r.mask vector=subwatershed@PERMANENT
+r.mask -r vector=subwatershed@PERMANENT
+r.mask -r vector=watershed@PERMANENT
+r.mask vector=watershed@PERMANENT
+g.region region=region -p
+g.region
+g.region --overwrite vector=subwatershed@PERMANENT res=1 save=subregion
+/home/baharmon/landscape_evolution/scripts/render_simulations.py
+r.mask -r
+/home/baharmon/landscape_evolution/scripts/render_simulations.py
+/home/baharmon/landscape_evolution/scripts/render_sample_data.py
+/home/baharmon/landscape_evolution/scripts/render_sample_data.py
+/home/baharmon/landscape_evolution/scripts/render_sample_data.py
