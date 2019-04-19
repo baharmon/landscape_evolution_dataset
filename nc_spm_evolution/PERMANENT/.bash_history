@@ -784,3 +784,8 @@ r.mask -r
 /home/baharmon/landscape_evolution/scripts/render_sample_data.py
 /home/baharmon/landscape_evolution/scripts/render_sample_data.py
 /home/baharmon/landscape_evolution/scripts/render_sample_data.py
+/home/baharmon/landscape_evolution/scripts/render_simulations.py
+/home/baharmon/landscape_evolution/scripts/render_sample_data.py
+/home/baharmon/landscape_evolution/scripts/render_sample_data.py
+/home/baharmon/landscape_evolution/scripts/render_sample_data.py
+/home/baharmon/landscape_evolution/scripts/render_sample_data.py
