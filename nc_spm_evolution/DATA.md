@@ -173,7 +173,7 @@ r.category map=landcover separator=pipe rules=landcover_categories.txt
 ## derive k factor, c factor, mannings, and runoff
 ```
 v.import input=fort_bragg_data/wss_aoi_2017-05-21_15-12-11/wss_aoi_2017-05-21_15-12-11\spatial\soilmu_a_aoi.shp output=soils extent=region
-v.to.rast input=soils@PERMANENT output=soil_types use=cat memory=3000
+v.to.rast input=soils output=soil_types use=cat memory=3000
 r.recode input=soil_types output=soils rules=soil_classification.txt
 r.category map=soils separator=pipe rules=soil_categories.txt
 r.colors map=soils color=sepia
