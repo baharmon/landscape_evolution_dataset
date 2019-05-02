@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE gxw SYSTEM "grass-gxw.dtd">
+<gxw>
+    <layer_manager dim="67,27,625,600">
+    </layer_manager>
+    <display name="Display 1" render="1" mode="0" showCompExtent="1" alignExtent="1" constrainRes="0" showStatusbar="1" showToolbars="1" dim="696,27,1519,1452" extent="597195.000000,150580.000000,597645.000000,151030.000000,0.000000,1.000000" tbres="1.000000" viewMode="2d" >
+        <layer type="vector" name="watershed@PERMANENT" checked="1" opacity="1.000000">
+            <task name="d.vect">
+                <parameter name="map">
+                    <value>watershed@PERMANENT</value>
+                </parameter>
+                <parameter name="fill_color">
+                    <value>none</value>
+                </parameter>
+                <parameter name="width">
+                    <value>4</value>
+                </parameter>
+            </task>
+        </layer>
+        <layer type="vector" name="contours_scanned@scanning" checked="1" opacity="1.000000">
+            <task name="d.vect">
+                <parameter name="map">
+                    <value>contours_scanned@scanning</value>
+                </parameter>
+            </task>
+        </layer>
+        <layer type="raster" name="flux@scanning" checked="0" opacity="1.000000">
+            <task name="d.rast">
+                <parameter name="map">
+                    <value>flux@scanning</value>
+                </parameter>
+            </task>
+        </layer>
+        <layer type="raster" name="erdep@scanning" checked="0" opacity="1.000000">
+            <task name="d.rast">
+                <parameter name="map">
+                    <value>erdep@scanning</value>
+                </parameter>
+            </task>
+        </layer>
+        <layer type="raster" name="erosion_deposition@scanning" checked="0" opacity="1.000000">
+            <task name="d.rast">
+                <parameter name="map">
+                    <value>erosion_deposition@scanning</value>
+                </parameter>
+            </task>
+        </layer>
+        <layer type="raster" name="lake@scanning" checked="1" opacity="1.000000">
+            <selected />
+            <task name="d.rast">
+                <parameter name="map">
+                    <value>lake@scanning</value>
+                </parameter>
+            </task>
+        </layer>
+        <layer type="raster" name="ponds@scanning" checked="1" opacity="1.000000">
+            <task name="d.rast">
+                <parameter name="map">
+                    <value>ponds@scanning</value>
+                </parameter>
+            </task>
+        </layer>
+        <layer type="raster" name="flowacc@scanning" checked="1" opacity="1.000000">
+            <task name="d.rast">
+                <parameter name="map">
+                    <value>flowacc@scanning</value>
+                </parameter>
+                <parameter name="values">
+                    <value>18-999999</value>
+                </parameter>
+            </task>
+        </layer>
+        <layer type="raster" name="depth@scanning" checked="0" opacity="1.000000">
+            <task name="d.rast">
+                <parameter name="map">
+                    <value>depth@scanning</value>
+                </parameter>
+                <parameter name="values">
+                    <value>0.025-9999999</value>
+                </parameter>
+            </task>
+        </layer>
+        <layer type="raster" name="scan@scanning" checked="1" opacity="1.000000">
+            <task name="d.rast">
+                <parameter name="map">
+                    <value>scan@scanning</value>
+                </parameter>
+            </task>
+        </layer>
+        <layer type="raster" name="elevation_2016@PERMANENT" checked="1" opacity="1.000000">
+            <task name="d.rast">
+                <parameter name="map">
+                    <value>elevation_2016@PERMANENT</value>
+                </parameter>
+            </task>
+        </layer>
+    </display>
+    <display name="Display 2" render="1" mode="0" showCompExtent="1" alignExtent="1" constrainRes="0" showStatusbar="1" showToolbars="1" dim="4199,0,972,844" extent="597195.000000,150580.000000,597645.000000,151030.000000,0.000000,1.000000" tbres="1.000000" viewMode="2d" >
+        <layer type="vector" name="watershed@PERMANENT" checked="1" opacity="1.000000">
+            <task name="d.vect">
+                <parameter name="map">
+                    <value>watershed@PERMANENT</value>
+                </parameter>
+                <parameter name="fill_color">
+                    <value>none</value>
+                </parameter>
+                <parameter name="width">
+                    <value>2</value>
+                </parameter>
+            </task>
+        </layer>
+        <layer type="vector" name="contours_scanned@scanning" checked="1" opacity="1.000000">
+            <task name="d.vect">
+                <parameter name="map">
+                    <value>contours_scanned@scanning</value>
+                </parameter>
+            </task>
+        </layer>
+        <layer type="raster" name="erdep@scanning" checked="0" opacity="1.000000">
+            <task name="d.rast">
+                <parameter name="map">
+                    <value>erdep@scanning</value>
+                </parameter>
+            </task>
+        </layer>
+        <layer type="raster" name="erosion_deposition@scanning" checked="0" opacity="1.000000">
+            <task name="d.rast">
+                <parameter name="map">
+                    <value>erosion_deposition@scanning</value>
+                </parameter>
+            </task>
+        </layer>
+        <layer type="raster" name="flowacc@scanning" checked="0" opacity="1.000000">
+            <task name="d.rast">
+                <parameter name="map">
+                    <value>flowacc@scanning</value>
+                </parameter>
+            </task>
+        </layer>
+        <layer type="raster" name="flux@scanning" checked="0" opacity="1.000000">
+            <task name="d.rast">
+                <parameter name="map">
+                    <value>flux@scanning</value>
+                </parameter>
+            </task>
+        </layer>
+        <layer type="raster" name="lake@scanning" checked="1" opacity="1.000000">
+            <selected />
+            <task name="d.rast">
+                <parameter name="map">
+                    <value>lake@scanning</value>
+                </parameter>
+            </task>
+        </layer>
+        <layer type="raster" name="ponds@scanning" checked="1" opacity="1.000000">
+            <task name="d.rast">
+                <parameter name="map">
+                    <value>ponds@scanning</value>
+                </parameter>
+            </task>
+        </layer>
+        <layer type="raster" name="depth@scanning" checked="1" opacity="1.000000">
+            <task name="d.rast">
+                <parameter name="map">
+                    <value>depth@scanning</value>
+                </parameter>
+                <parameter name="values">
+                    <value>0.025-9999999</value>
+                </parameter>
+            </task>
+        </layer>
+        <layer type="raster" name="scan@scanning" checked="1" opacity="1.000000">
+            <task name="d.rast">
+                <parameter name="map">
+                    <value>scan@scanning</value>
+                </parameter>
+            </task>
+        </layer>
+        <layer type="raster" name="elevation_2016@PERMANENT" checked="1" opacity="1.000000">
+            <task name="d.rast">
+                <parameter name="map">
+                    <value>elevation_2016@PERMANENT</value>
+                </parameter>
+            </task>
+        </layer>
+    </display>
+</gxw>

@@ -793,3 +793,36 @@ r.mask -r
 /home/baharmon/landscape_evolution/scripts/render_sample_data.py
 /home/baharmon/landscape_evolution/scripts/render_sample_data.py
 /home/baharmon/landscape_evolution/scripts/render_sample_data.py
+r.colors map=ls_factor@PERMANENT rules=/home/baharmon/landscape_evolution_dataset/nc_spm_evolution/color_lsfactor.txt
+/home/baharmon/landscape_evolution/scripts/render_sample_data.py
+d.legend
+/home/baharmon/landscape_evolution/scripts/render_sample_data.py
+/home/baharmon/landscape_evolution/scripts/render_sample_data.py
+/home/baharmon/landscape_evolution/scripts/render_sample_data.py
+/home/baharmon/landscape_evolution/scripts/render_sample_data.py
+/home/baharmon/landscape_evolution/scripts/render_sample_data.py
+r.relief input=elevation_2012 output=relief_2012 altitude=80 zscale=0.3
+r.relief input=elevation_2012 output=relief_2012 altitude=80 zscale=0.3 --overwrite
+r.relief input=elevation_2004 output=relief_2004 altitude=80 zscale=0.3 --overwrite
+r.relief input=elevation_2016 output=relief_2016 altitude=80 zscale=0.3 --overwrite
+r.shade shade=relief_2004 color=colorized_skyview_2004 output=shaded_relief_2004 brighten=75 --overwrite
+r.shade shade=relief_2012 color=colorized_skyview_2012 output=shaded_relief_2012 brighten=75
+r.shade shade=relief_2012 color=colorized_skyview_2012 output=shaded_relief_2012 brighten=75 --overwrite
+r.shade shade=relief_2016 color=colorized_skyview_2016 output=shaded_relief_2016 brighten=75 --overwrite
+/home/baharmon/landscape_evolution/scripts/render_sample_data.py
+/home/baharmon/landscape_evolution/scripts/render_sample_data.py
+r.relief input=elevation_2004 output=relief_2004 --overwrite
+r.relief input=elevation_2012 output=relief_2012 --overwrite
+r.relief input=elevation_2016 output=relief_2016 --overwrite
+r.shade shade=relief_2004 color=colorized_skyview_2004 output=shaded_relief_2004 brighten=75 --overwrite
+r.shade shade=relief_2012 color=colorized_skyview_2012 output=shaded_relief_2012 brighten=75 --overwrite
+r.shade shade=relief_2016 color=colorized_skyview_2016 output=shaded_relief_2016 brighten=75 --overwrite
+/home/baharmon/landscape_evolution/scripts/render_sample_data.py
+/home/baharmon/landscape_evolution/scripts/render_sample_data.py
+/home/baharmon/landscape_evolution/scripts/render_sample_data.py
+/home/baharmon/landscape_evolution/scripts/render_sample_data.py
+/home/baharmon/landscape_evolution/scripts/render_sample_data.py
+/home/baharmon/landscape_evolution/scripts/render_sample_data.py
+/home/baharmon/landscape_evolution/scripts/render_sample_data.py
+/home/baharmon/landscape_evolution/scripts/render_sample_data.py
+/home/baharmon/landscape_evolution/scripts/render_sample_data.py
