@@ -826,3 +826,11 @@ r.shade shade=relief_2016 color=colorized_skyview_2016 output=shaded_relief_2016
 /home/baharmon/landscape_evolution/scripts/render_sample_data.py
 /home/baharmon/landscape_evolution/scripts/render_sample_data.py
 /home/baharmon/landscape_evolution/scripts/render_sample_data.py
+g.extension extension=r.sim.terrain url=github.com/baharmon/landscape_evolution
+/home/baharmon/landscape_evolution/scripts/steady_state_erdep.py
+g.extension extension=r.sim.terrain url=github.com/baharmon/landscape_evolution
+/home/baharmon/landscape_evolution/scripts/steady_state_erdep.py
+g.extension extension=r.sim.terrain url=github.com/baharmon/landscape_evolution
+/home/baharmon/landscape_evolution/scripts/steady_state_erdep.py
+g.extension extension=r.sim.terrain url=github.com/baharmon/landscape_evolution
+/home/baharmon/landscape_evolution/scripts/steady_state_erdep.py

@@ -1,5 +1,5 @@
 test -r ~/.alias && . ~/.alias
-PS1='GRASS 7.6.1svn (nc_spm_evolution):\w > '
+PS1='GRASS 7.4.2svn (nc_spm_evolution):\w > '
 grass_prompt() {
 	LOCATION="`g.gisenv get=GISDBASE,LOCATION_NAME,MAPSET separator='/'`"
 	if test -d "$LOCATION/grid3/G3D_MASK" && test -f "$LOCATION/cell/MASK" ; then
@@ -11,5 +11,5 @@ grass_prompt() {
 	fi
 }
 PROMPT_COMMAND=grass_prompt
-export PATH="/usr/local/grass-7.6.1svn/bin:/usr/local/grass-7.6.1svn/scripts:/home/baharmon/.grass7/addons/bin:/home/baharmon/.grass7/addons/scripts:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin"
+export PATH="/usr/local/grass-7.4.2svn/bin:/usr/local/grass-7.4.2svn/scripts:/home/baharmon/.grass7/addons/bin:/home/baharmon/.grass7/addons/scripts:/home/baharmon/landscape_evolution/testing:/home/baharmon/panama_hydrological_modeling/utilities:/home/baharmon/landscape_evolution:/home/baharmon/landscape_evolution/testing:/home/baharmon/panama_hydrological_modeling/utilities:/home/baharmon/landscape_evolution:/home/baharmon/landscape_evolution/testing:/home/baharmon/panama_hydrological_modeling/utilities:/home/baharmon/landscape_evolution:/home/baharmon/bin:/home/baharmon/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/local/:/snap/bin"
 export HOME="/home/baharmon"
