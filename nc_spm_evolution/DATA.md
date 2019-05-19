@@ -41,7 +41,7 @@ las2las --a_srs=EPSG:2264 --t_srs=EPSG:3358 -i 7884_1_scaled.las -o ncspm_7884_1
 g.region region=region res=0.3
 ```
 
-## compute digital elevation model for 2004 at 30cm resolution
+## interpolate digital elevation model for 2004 at 30cm resolution
 ```
 v.in.lidar -r -t input=fort_bragg_data/ncspm_be3710945900go20040820.las output=be3710945900go20040820
 v.in.lidar -r -t input=fort_bragg_data/ncspm_be3710945900go20040820.las output=be3710946900go20040820
@@ -57,7 +57,7 @@ g.remove -f type=raster name=kernel_2004,voids_2004
 v.surf.rst input=points_2004 elevation=elevation_2004 tension=30 smooth=1 nprocs=6
 ```
 
-## compute digital elevation model for 2012 at 30cm resolution
+## interpolate digital elevation model for 2012 at 30cm resolution
 ```
 v.in.lidar -r -t input=fort_bragg_data/I-08_spm.las output=i_08 class_filter=2
 v.in.lidar -r -t input=fort_bragg_data/J-08_spm.las output=j_08 class_filter=2
@@ -66,7 +66,7 @@ g.remove -f type=vector name=i_08,j_08
 v.surf.rst input=points_2012 elevation=elevation_2012 tension=21 smooth=1 nprocs=6
 ```
 
-## compute digital elevation model for 2016 at 30cm resolution
+## interpolate digital elevation model for 2016 at 30cm resolution
 ```
 v.in.lidar -r -t input=fort_bragg_data/ncspm_7884_1.las output=points_2016
 v.kernel input=points_2016 output=kernel_2016 radius=4 kernel=uniform
@@ -77,6 +77,16 @@ g.rename vector=patch_2016,points_2016 --overwrite
 g.remove -f type=vector name=fill_2016
 g.remove -f type=raster name=kernel_2016,voids_2016
 v.surf.rst input=points_2016 elevation=elevation_2016 tension=21 smooth=1 nprocs=6
+```
+
+## interpolate digital elevation models at 1m resolution
+```
+g.region region=region res=1
+v.surf.rst input=points_2004 elevation=elevation_2004_1m tension=10 smooth=2 nprocs=8
+v.surf.rst input=points_2012 elevation=elevation_2012_1m tension=10 smooth=2 nprocs=8
+v.surf.rst input=points_2016 elevation=elevation_2016_1m tension=10 smooth=2 nprocs=8
+r.mapcalc "difference_2012_2016_1m = elevation_2016_1m - elevation_2012_1m"
+r.colors map=difference_2012_2016_1m rules=color_difference.txt
 ```
 
 ## compute differences in time series

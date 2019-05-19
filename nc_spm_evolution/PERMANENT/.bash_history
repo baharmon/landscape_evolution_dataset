@@ -834,3 +834,23 @@ g.extension extension=r.sim.terrain url=github.com/baharmon/landscape_evolution
 /home/baharmon/landscape_evolution/scripts/steady_state_erdep.py
 g.extension extension=r.sim.terrain url=github.com/baharmon/landscape_evolution
 /home/baharmon/landscape_evolution/scripts/steady_state_erdep.py
+g.region region=region res=1
+v.surf.rst input=points_2004 elevation=elevation_2004_1m tension=30 smooth=1 nprocs=6
+v.surf.rst input=points_2012 elevation=elevation_2012_1m tension=21 smooth=1 nprocs=6
+r.relief
+r.relief input=elevation_2012_1m@PERMANENT output=relief_2012_1m
+g.remove
+g.remove -f type=raster name=relief_2012_1m@PERMANENT
+v.surf.rst input=points_2012 elevation=elevation_2012_1m tension=15 smooth=2 nprocs=8
+v.surf.rst input=points_2012 elevation=elevation_2012_1m tension=15 smooth=2 nprocs=8 --overwrite
+r.relief input=elevation_2012_1m@PERMANENT output=relief_2012_1m
+v.surf.rst input=points_2012 elevation=elevation_2012_1m tension=10 smooth=2 nprocs=8 --overwrite
+r.relief input=elevation_2012_1m@PERMANENT output=relief_2012_1m --overwrite
+g.remove -f type=raster name=relief_2012_1m@PERMANENT
+v.surf.rst input=points_2016 elevation=elevation_2016_1m tension=10 smooth=2 nprocs=8 --overwrite
+v.surf.rst input=points_2004 elevation=elevation_2004_1m tension=10 smooth=2 nprocs=8
+v.surf.rst input=points_2004 elevation=elevation_2004_1m tension=10 smooth=2 nprocs=8 --overwrite
+r.mapcalc difference_2012_2016_1m = elevation_2016_1m - elevation_2012_1m
+r.colors map=difference_2012_2016_1m rules=color_difference.txt
+r.colors
+r.colors map=difference_2012_2016_1m@PERMANENT rules=/home/baharmon/landscape_evolution_dataset/nc_spm_evolution/color_difference.txt
