@@ -2,7 +2,7 @@
 
 ## set patterson branch region
 ```
-g.region n=151030 s=150580 w=597195 e=597645 save=region res=0.3
+g.region n=151030 s=150580 w=597195 e=597645 save=region res=1
 ```
 
 ## set fort bragg region
@@ -38,10 +38,10 @@ las2las --a_srs=EPSG:2264 --t_srs=EPSG:3358 -i 7884_1_scaled.las -o ncspm_7884_1
 
 ## set region
 ```
-g.region region=region res=0.3
+g.region region=region res=1
 ```
 
-## interpolate digital elevation model for 2004 at 30cm resolution
+## interpolate digital elevation model for 2004 at 1m resolution
 ```
 v.in.lidar -r -t input=fort_bragg_data/ncspm_be3710945900go20040820.las output=be3710945900go20040820
 v.in.lidar -r -t input=fort_bragg_data/ncspm_be3710945900go20040820.las output=be3710946900go20040820
@@ -54,19 +54,26 @@ v.patch input=points_2004,fill_2004 output=patch_2004
 g.rename vector=patch_2004,points_2004 --overwrite
 g.remove -f type=vector name=fill_2004
 g.remove -f type=raster name=kernel_2004,voids_2004
-v.surf.rst input=points_2004 elevation=elevation_2004 tension=30 smooth=1 nprocs=6
+v.surf.rst input=points_2004 elevation=elevation_2004 tension=10 smooth=2 nprocs=8
 ```
 
-## interpolate digital elevation model for 2012 at 30cm resolution
+## interpolate digital elevation model for 2012 at 1m resolution
 ```
 v.in.lidar -r -t input=fort_bragg_data/I-08_spm.las output=i_08 class_filter=2
 v.in.lidar -r -t input=fort_bragg_data/J-08_spm.las output=j_08 class_filter=2
 v.patch input=i_08,j_08 output=points_2012
 g.remove -f type=vector name=i_08,j_08
-v.surf.rst input=points_2012 elevation=elevation_2012 tension=21 smooth=1 nprocs=6
+wxGUI.vdigit
+v.select ainput=points_2012 binput=mask output=points_2012_a operator=intersects
+v.select ainput=points_2012 binput=mask output=points_2012_b operator=disjoint
+v.edit map=points_2012_a type=point tool=move move=0,0,0.7 bbox=597645,151030,597195,150580
+v.patch input=points_2012_a,points_2012_b output=corrected_2012
+v.surf.rst input=corrected_2012 elevation=elevation_2012 tension=10 smooth=2 nprocs=8 --overwrite
+g.remove -f type=vector name=points_2012_a,points_2012_b
+v.surf.rst input=points_2012 elevation=elevation_2012 tension=10 smooth=2 nprocs=8
 ```
 
-## interpolate digital elevation model for 2016 at 30cm resolution
+## interpolate digital elevation model for 2016 at 1m resolution
 ```
 v.in.lidar -r -t input=fort_bragg_data/ncspm_7884_1.las output=points_2016
 v.kernel input=points_2016 output=kernel_2016 radius=4 kernel=uniform
@@ -76,40 +83,17 @@ v.patch input=points_2016,fill_2016 output=patch_2016
 g.rename vector=patch_2016,points_2016 --overwrite
 g.remove -f type=vector name=fill_2016
 g.remove -f type=raster name=kernel_2016,voids_2016
-v.surf.rst input=points_2016 elevation=elevation_2016 tension=21 smooth=1 nprocs=6
-```
-
-## interpolate digital elevation models at 1m resolution
-```
-g.region region=region res=1
-v.surf.rst input=points_2004 elevation=elevation_2004_1m tension=10 smooth=2 nprocs=8
-v.surf.rst input=points_2012 elevation=elevation_2012_1m tension=10 smooth=2 nprocs=8
-v.surf.rst input=points_2016 elevation=elevation_2016_1m tension=10 smooth=2 nprocs=8
-r.mapcalc "difference_2012_2016_1m = elevation_2016_1m - elevation_2012_1m"
-r.colors map=difference_2012_2016_1m rules=color_difference.txt
+v.surf.rst input=points_2016 elevation=elevation_2016 tension=10 smooth=2 nprocs=8
 ```
 
 ## compute differences in time series
 ```
-r.mapcalc "difference_2004_2016 = elevation_2016 - elevation_2004"
 r.mapcalc "difference_2004_2012 = elevation_2012 - elevation_2004"
+r.mapcalc "difference_2004_2016 = elevation_2016 - elevation_2004"
 r.mapcalc "difference_2012_2016 = elevation_2016 - elevation_2012"
-r.colors map=difference_2004_2012 rules=color_difference.txt
-r.colors map=difference_2004_2012 rules=color_difference.txt
+r.colors map=difference_2004_2012_30cm rules=color_difference.txt
+r.colors map=difference_2004_2016_30cm rules=color_difference.txt
 r.colors map=difference_2012_2016 rules=color_difference.txt
-```
-
-## fix lidar shift
-```
-wxGUI.vdigit
-v.select ainput=points_2012 binput=mask output=points_2012_a operator=intersects
-v.select ainput=points_2012 binput=mask output=points_2012_b operator=disjoint
-v.edit map=points_2012_a type=point tool=move move=0,0,0.7 bbox=597645,151030,597195,150580
-v.patch input=points_2012_a,points_2012_b output=corrected_2012
-v.surf.rst input=corrected_2012 elevation=elevation_2012 tension=10 smooth=1 --overwrite
-r.mapcalc "difference_2004_2012 = elevation_2012 - elevation_2004" --overwrite
-r.mapcalc "difference_2012_2016 = elevation_2016 - elevation_2012" --overwrite
-g.remove -f type=vector name=points_2012_a,points_2012_b
 ```
 
 ## multiple return 2012

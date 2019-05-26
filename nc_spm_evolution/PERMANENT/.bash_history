@@ -854,3 +854,57 @@ r.mapcalc difference_2012_2016_1m = elevation_2016_1m - elevation_2012_1m
 r.colors map=difference_2012_2016_1m rules=color_difference.txt
 r.colors
 r.colors map=difference_2012_2016_1m@PERMANENT rules=/home/baharmon/landscape_evolution_dataset/nc_spm_evolution/color_difference.txt
+/home/baharmon/landscape_evolution/scripts/dynamic_simulations.py
+/home/baharmon/landscape_evolution/scripts/steady_state_simulation.py
+/home/baharmon/landscape_evolution/scripts/steady_state_simulation.py
+/home/baharmon/landscape_evolution/scripts/dynamic_simulations.py
+/home/baharmon/landscape_evolution/scripts/sandbox/render_sample_data_1m.py
+g.rename
+g.rename raster=elevation_2004@PERMANENT,elevation_2004_30cm
+g.rename raster=elevation_2012@PERMANENT,elevation_2012_30cm
+g.rename raster=elevation_2016@PERMANENT,elevation_2016_30cm
+g.rename raster=difference_2004_2012@PERMANENT,difference_2004_2012_30cm
+g.rename raster=difference_2004_2016@PERMANENT,difference_2004_2016_30cm
+g.rename raster=difference_2012_2016@PERMANENT,difference_2012_2016_30cm
+g.region region=region res=1
+v.surf.rst input=corrected_2012 elevation=elevation_2012_1m tension=10 smooth=2 nprocs=8
+v.surf.rst input=corrected_2012 elevation=elevation_2012_1m tension=10 smooth=2 nprocs=8 --overwrite
+r.mapcalc difference_2012_2016_1m = elevation_2016_1m - elevation_2012_1m
+r.mapcalc difference_2012_2016_1m = elevation_2016_1m - elevation_2012_1m --overwrite
+r.mapcalc difference_2004_2012_1m = elevation_2012_1m - elevation_2004_1m
+r.mapcalc difference_2004_2016_1m = elevation_2016_1m - elevation_2004_1m
+r.colors map=difference_2004_2012_30cm rules=color_difference.txt
+r.colors
+r.colors map=difference_2012_2016_1m@PERMANENT rules=/home/baharmon/landscape_evolution_dataset/nc_spm_evolution/color_difference.txt
+r.colors map=difference_2004_2016_1m@PERMANENT rules=/home/baharmon/landscape_evolution_dataset/nc_spm_evolution/color_difference.txt
+r.colors map=difference_2012_2016_1m@PERMANENT rules=/home/baharmon/landscape_evolution_dataset/nc_spm_evolution/color_difference.txt
+r.colors map=difference_2004_2012_1m@PERMANENT rules=/home/baharmon/landscape_evolution_dataset/nc_spm_evolution/color_difference.txt
+/home/baharmon/landscape_evolution/scripts/render_simulations.py
+/home/baharmon/landscape_evolution/scripts/render_sample_data.py
+/home/baharmon/landscape_evolution/scripts/render_sample_data.py
+/home/baharmon/landscape_evolution/scripts/render_sample_data.py
+/home/baharmon/landscape_evolution/scripts/render_sample_data.py
+/home/baharmon/landscape_evolution/scripts/render_sample_data.py
+/home/baharmon/landscape_evolution/scripts/render_sample_data.py
+/home/baharmon/landscape_evolution/scripts/render_sample_data.py
+/home/baharmon/landscape_evolution/scripts/render_sample_data.py
+g.region n=151030 s=150580 w=597195 e=597645 save=region res=1
+g.region n=151030 s=150580 w=597195 e=597645 save=region res=1 --overwrite
+g.rename
+g.rename raster=difference_2004_2012_1m@PERMANENT,difference_2004_2012
+g.rename raster=difference_2004_2016_1m@PERMANENT,difference_2004_2016
+g.rename raster=difference_2012_2016_1m@PERMANENT,difference_2012_2016
+g.rename raster=elevation_2004_1m@PERMANENT,elevation_2004
+g.rename raster=elevation_2012_1m@PERMANENT,elevation_2012
+g.rename raster=elevation_2016_1m@PERMANENT,elevation_2016
+g.remove
+g.remove type=raster pattern=*_30cm
+g.remove -f type=raster pattern=*_30cm
+g.remove
+g.remove -f type=raster name=dx_2004@PERMANENT,dx_2012@PERMANENT,dx_2016@PERMANENT,dy_2004@PERMANENT,dy_2004@PERMANENT,dy_2012@PERMANENT,dy_2016@PERMANENT
+g.remove -f type=raster pattern=*_1m
+g.remove -f type=raster name=ls_factor
+g.remove -f type=raster name=relief
+/home/baharmon/landscape_evolution/scripts/render_sample_data.py
+/home/baharmon/landscape_evolution/scripts/render_sample_data.py
+/home/baharmon/landscape_evolution/scripts/render_sample_data.py
