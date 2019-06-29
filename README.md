@@ -1,5 +1,5 @@
 [![License: ODbL](https://img.shields.io/badge/License-ODbL-brightgreen.svg)](https://opendatacommons.org/licenses/odbl/)
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.3243700.svg)](https://doi.org/10.5281/zenodo.3243700)
+[![DOI](https://zenodo.org/badge/115289574.svg)](https://zenodo.org/badge/latestdoi/115289574)
 # Landscape evolution dataset
 A sample dataset for the
 [r.sim.terrain](https://github.com/baharmon/landscape_evolution)
