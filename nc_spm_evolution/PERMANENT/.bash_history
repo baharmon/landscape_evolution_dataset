@@ -908,3 +908,120 @@ g.remove -f type=raster name=relief
 /home/baharmon/landscape_evolution/scripts/render_sample_data.py
 /home/baharmon/landscape_evolution/scripts/render_sample_data.py
 /home/baharmon/landscape_evolution/scripts/render_sample_data.py
+r.colors map=erosion_deposition_2016@PERMANENT color=viridis
+r.info map=erosion_deposition_2016@PERMANENT
+g.remove
+g.remove -f type=raster name=erosion_deposition_2004@PERMANENT,erosion_deposition_2012@PERMANENT,erosion_deposition_2016@PERMANENT
+g.remove -f type=raster name=sediment_flow_2004@PERMANENT,sediment_flow_2012@PERMANENT,sediment_flow_2016@PERMANENT,sediment_flux_2004@PERMANENT,sediment_flux_2012@PERMANENT,sediment_flux_2016@PERMANENT
+r.info map=depth_2016@PERMANENT
+r.colors map=restored_landcover@PERMANENT rules=D:\landscape_evolution_dataset\nc_spm_evolution\color_landcover.txt
+g.remove
+g.remove -f type=raster name=restored_landcover@PERMANENT
+g.copy
+g.copy raster=landcover,restored_landcover
+r.colors map=restored_landcover@PERMANENT rules=D:\landscape_evolution_dataset\nc_spm_evolution\color_landcover.txt
+g.copy
+g.copy raster=restored_landcover@PERMANENT,fully_restored_landcover
+g.rename
+g.rename
+r.category map=restored_landcover@PERMANENT rules=D:\landscape_evolution_dataset\nc_spm_evolution\landcover_categories.txt
+r.category
+r.category map=restored_landcover separator=pipe rules=D:\landscape_evolution_dataset\nc_spm_evolution\landcover_categories.txt
+r.category map=fully_restored_landcover separator=pipe rules=D:\landscape_evolution_dataset\nc_spm_evolution\landcover_categories.txt
+g.region
+g.region vector=subwatershed
+r.mask vector=subwatershed@PERMANENT
+d.legend -n raster=restored_landcover@PERMANENT at=2,30,2,10 font=Lato-Regular fontsize=12
+r.info map=restored_landcover@PERMANENT
+r.category
+r.category map=restored_landcover@PERMANENT separator=pipe rules=D:\landscape_evolution_dataset\nc_spm_evolution\landcover_categories.txt
+r.category map=restored_landcover@PERMANENT separator=pipe rules=D:\landscape_evolution_dataset\nc_spm_evolution\landcover_categories.txt
+r.info map=landcover@PERMANENT
+r.info map=restored_landcover@PERMANENT
+d.rast.edit
+r.mapcalc
+r.mapcalc expression=restored_landcover_int = int(restored_landcover)
+r.mapcalc --overwrite expression=restored_landcover = restored_landcover_int
+g.remove
+g.remove -f type=raster
+g.remove -f type=raster name=restored_landcover_int@PERMANENT
+r.category map=restored_landcover@PERMANENT separator=pipe rules=D:\landscape_evolution_dataset\nc_spm_evolution\landcover_categories.txt
+d.legend -n raster=restored_landcover@PERMANENT at=2,30,2,10 font=Lato-Regular fontsize=12
+d.legend -n raster=restored_landcover@PERMANENT at=2,30,2,10 font=Lato-Regular fontsize=12
+r.mapcalc
+r.mapcalc expression=fully_restored_landcover_int = int(fully_restored_landcover)
+g.rename
+g.rename --overwrite raster=fully_restored_landcover_int,fully_restored_landcover
+g.rename
+g.rename raster=restored_landcover,landcover_restored
+g.rename raster=restored_landcover,landcover_fully_restored
+g.rename raster=fully_restored_landcover,landcover_fully_restored
+r.mask -r
+g.copy
+g.copy raster=restored_landcover@simwe_restored,restored_landcover
+g.copy raster=fully_restored_landcover@simwe_fully_restored,fully_restored_landcover
+r.mapcalc expression=fully_restored_landcover_int = int(fully_restored_landcover)
+g.rename
+g.rename --overwrite raster=fully_restored_landcover_int@PERMANENT,landcover_fully_restored
+g.copy raster=restored_landcover@simwe_restored,restored_landcover
+g.copy raster=fully_restored_landcover@simwe_fully_restored,fully_restored_landcover --overwrite
+g.copy raster=restored_landcover@simwe_restored,restored_landcover --overwrite
+r.mapcalc expression=fully_restored_landcover_int = int(fully_restored_landcover)
+r.mapcalc expression=restored_landcover_int = int(restored_landcover)
+g.rename --overwrite raster=fully_restored_landcover_int@PERMANENT,landcover_fully_restored
+g.rename --overwrite raster=restored_landcover_int@PERMANENT,landcover_restored
+g.remove
+g.remove -f type=raster name=restored_landcover@PERMANENT,fully_restored_landcover@PERMANENT
+r.colors map=landcover_fully_restored@PERMANENT rules=D:\landscape_evolution_dataset\nc_spm_evolution\color_landcover.txt
+r.colors map=landcover_restored@PERMANENT rules=D:\landscape_evolution_dataset\nc_spm_evolution\color_landcover.txt
+r.category map=landcover_restored@PERMANENT separator=pipe rules=D:\landscape_evolution_dataset\nc_spm_evolution\landcover_categories.txt
+r.category map=landcover_fully_restored@PERMANENT separator=pipe rules=D:\landscape_evolution_dataset\nc_spm_evolution\landcover_categories.txt
+r.mask vector=subwatershed@PERMANENT
+d.legend -n raster=landcover_restored@PERMANENT at=2,30,2,10 font=Lato-Regular fontsize=12
+d.legend -n raster=landcover@PERMANENT at=2,30,2,10 use=31,41,42,43,52,71,100 font=Lato-Regular fontsize=14
+d.legend -n raster=landcover_restored@PERMANENT at=2,30,2,10 use=31,41,42,43,52,71,100 font=Lato-Regular fontsize=14
+d.northarrow style=6 at=90.0,95.0
+d.barscale at=72,93 length=25 segment=2
+d.legend raster=elevation_2016@PERMANENT at=2,30,2,10 font=Lato-Regular fontsize=14
+d.legend raster=elevation_2016@PERMANENT at=2,30,2,5 font=Lato-Regular fontsize=14
+d.legend -n raster=landcover_restored@PERMANENT at=2,30,2,10 use=31,41,42,43,52,71,100 font=Lato-Regular fontsize=14
+d.legend raster=elevation_2016@PERMANENT at=2,30,2,6 font=Lato-Regular fontsize=14
+d.legend raster=elevation_2016@PERMANENT at=2,30,2,5.5 font=Lato-Regular fontsize=14
+d.legend raster=elevation_2016@PERMANENT at=2,30,2,5.25 font=Lato-Regular fontsize=14
+d.legend raster=elevation_2016@PERMANENT at=2,30,2,5.25 font=Lato-Regular fontsize=14
+d.legend raster=elevation_2016@PERMANENT at=2,30,2,5.25 font=Lato-Regular fontsize=14
+r.colors
+r.colors map=erosion_deposition_2016_01_01_01_00_00@usped_baseline rules=D:\landscape_evolution_dataset\nc_spm_evolution\color_erdep_25cm.txt
+r.colors map=erosion_deposition_2016_01_01_01_00_00@usped_baseline rules=D:\landscape_evolution_dataset\nc_spm_evolution\color_erdep_25cm.txt
+r.colors map=erosion_deposition_2016_01_01_01_00_00@usped_baseline rules=D:\landscape_evolution_dataset\nc_spm_evolution\color_erdep_25cm.txt
+r.colors map=erosion_deposition_2016_01_01_01_00_00@usped_baseline rules=D:\landscape_evolution_dataset\nc_spm_evolution\color_erdep.txt
+r.colors map=depth_2016_01_01_01_00_00@usped_restored raster=flow_accumulation_2016@PERMANENT
+d.legend raster=elevation_2016@PERMANENT at=2,30,2,5.25 font=Lato-Regular fontsize=14
+d.legend
+d.legend raster=net_difference@simwe_baseline at=2,30,2,5.25 font=Lato-Regular fontsize=14
+r.info map=net_difference@usped_baseline
+r.univar
+r.univar map=net_difference@usped_baseline separator=newline
+r.mapcalc
+r.mapcalc expression=erosion@usped_baseline = if(net_difference@usped_baseline > 0, net_difference@usped_baseline, null())
+r.mapcalc expression=erosion = if(net_difference@usped_baseline > 0, net_difference@usped_baseline, null())
+r.univar map=erosion@usped_baseline separator=newline
+r.univar map=erosion@PERMANENT separator=newline
+r.mapcalc --overwrite expression=deposition = if(net_difference@usped_baseline < 0, net_difference@usped_baseline, null())
+r.univar map=deposition@PERMANENT separator=newline
+g.remove
+g.remove type=raster name=erosion,deposition
+r.univar map=net_difference@usped_restored separator=newline
+r.mapcalc --overwrite expression=deposition = if(net_difference@usped_restored < 0, net_difference@usped_restored, null())
+r.univar map=deposition separator=newline
+r.mapcalc --overwrite expression=deposition = if(net_difference@usped_baseline < 0, net_difference@usped_baseline, null())
+r.univar map=deposition separator=newline
+r.mapcalc --overwrite expression=erosion = if(net_difference@usped_restored > 0, net_difference@usped_restored, null())
+r.univar map=erosion separator=newline
+r.univar map=net_difference@usped_fully_restored separator=newline
+r.mapcalc --overwrite expression=erosion = if(net_difference@usped_fully_restored > 0, net_difference@usped_fully_restored, null())
+r.univar map=erosion separator=newline
+r.mapcalc --overwrite expression=deposition = if(net_difference@usped_fully_restored < 0, net_difference@usped_fully_restored, null())
+r.univar map=deposition separator=newline
+g.remove -f type=raster name=erosion,deposition
+r.mask -r

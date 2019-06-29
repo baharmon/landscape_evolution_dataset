@@ -1,17 +1,17 @@
 proj:       99
 zone:       0
-north:      151030
-south:      150580
-east:       597645
-west:       597195
-cols:       450
-rows:       450
+north:      150958
+south:      150736
+east:       597412
+west:       597222
+cols:       190
+rows:       222
 e-w resol:  1
 n-s resol:  1
-top:        1.000000000000000
-bottom:     0.000000000000000
-cols3:      450
-rows3:      450
+top:        0.500000000000000
+bottom:     -0.500000000000000
+cols3:      190
+rows3:      222
 depths:     1
 e-w resol3: 1
 n-s resol3: 1
